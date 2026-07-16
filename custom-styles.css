@@ -932,3 +932,139 @@ footer.framer-axgd5s::after {
   .fito-skill-title { font-size: 17px; }
   .fito-skill-desc { font-size: 14px; }
 }
+
+/* ==========================================================================
+   COLOUR GRADING — before/after wipe (see initSkills / initGradeSlider)
+   One source image, shown twice: left half flat, right half purple-graded in
+   CSS. Swap assets/grade-sample.jpg for one of Fito's own frames any time.
+   ========================================================================== */
+.fito-grade {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 44px;
+  align-items: center;
+  margin-top: 64px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  background: rgba(13, 13, 13, 0.45);
+}
+.fito-grade-title {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.fito-grade-desc {
+  margin: 0;
+  color: rgba(235, 235, 235, 0.68);
+  font-size: 15px;
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+.fito-grade-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  outline: none;
+}
+.fito-grade-slider:focus-visible {
+  box-shadow: 0 0 0 3px rgba(128, 0, 255, 0.6);
+}
+
+.fito-grade-layer {
+  position: absolute;
+  inset: 0;
+}
+.fito-grade-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* Graded: richer, contrastier, with a purple cinematic wash */
+.fito-grade-after img {
+  filter: saturate(1.28) contrast(1.14) brightness(0.98);
+}
+.fito-grade-after::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, rgba(128, 0, 255, 0.34) 0%, rgba(0, 170, 255, 0.16) 100%);
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+/* Ungraded: flat, washed out — clipped to the left of the handle */
+.fito-grade-before {
+  clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0);
+}
+.fito-grade-before img {
+  filter: saturate(0.38) contrast(0.9) brightness(1.1);
+}
+
+.fito-grade-label {
+  position: absolute;
+  top: 12px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 3;
+}
+.fito-grade-label.is-before { left: 12px; }
+.fito-grade-label.is-after { right: 12px; }
+
+.fito-grade-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos, 50%);
+  width: 2px;
+  margin-left: -1px;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 4;
+}
+.fito-grade-handle {
+  position: absolute;
+  top: 50%;
+  left: var(--pos, 50%);
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: 5;
+}
+.fito-grade-handle svg { width: 18px; height: 18px; }
+
+@media (max-width: 900px) {
+  .fito-grade {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 22px;
+    margin-top: 44px;
+  }
+  .fito-grade-title { font-size: 22px; }
+}

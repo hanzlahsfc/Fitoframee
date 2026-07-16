@@ -330,6 +330,41 @@
     extras:   '<circle cx="12" cy="9" r="5.5"/><path d="M8.2 13.4 7 22l5-2.6L17 22l-1.2-8.6"/>'
   };
 
+  /* Drag/keyboard handling for the colour-grading before/after wipe.
+     Position is a single --pos custom property; CSS clips the "before" layer
+     and places the line + handle from it. */
+  function initGradeSlider(slider) {
+    if (!slider) return;
+    var dragging = false;
+
+    function setPos(pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      slider.style.setProperty('--pos', pct + '%');
+      slider.setAttribute('aria-valuenow', Math.round(pct));
+    }
+    function fromEvent(e) {
+      var rect = slider.getBoundingClientRect();
+      var x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+      setPos((x / rect.width) * 100);
+    }
+    function onDown(e) { dragging = true; fromEvent(e); }
+    function onMove(e) { if (dragging) { if (e.cancelable) e.preventDefault(); fromEvent(e); } }
+    function onUp() { dragging = false; }
+
+    slider.addEventListener('mousedown', onDown);
+    slider.addEventListener('touchstart', onDown, { passive: true });
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('touchmove', onMove, { passive: false });
+    document.addEventListener('mouseup', onUp);
+    document.addEventListener('touchend', onUp);
+    slider.addEventListener('keydown', function (e) {
+      var now = parseFloat(slider.getAttribute('aria-valuenow')) || 50;
+      if (e.key === 'ArrowLeft') { setPos(now - 4); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { setPos(now + 4); e.preventDefault(); }
+    });
+    setPos(50);
+  }
+
   function initSkills() {
     var wrap = document.querySelector('.framer-1dg4u9r');
     if (!wrap) return;
@@ -360,10 +395,40 @@
         '<img class="fito-collage-a" src="./assets/fito-3.jpg" alt="" loading="lazy">' +
         '<img class="fito-collage-b" src="./assets/fito-4.jpg" alt="" loading="lazy">' +
       '</div>' +
+    '</div>' +
+    /* Colour-grading before/after. One source image shown twice: the left half
+       flat/ungraded, the right half with a purple cinematic grade applied in
+       CSS. Using two unrelated photos would demo nothing — grading is only
+       legible as the same frame treated two ways.
+       assets/grade-sample.jpg is an Unsplash placeholder; swap it for one of
+       Fito's own frames and the effect still works. */
+    '<div class="fito-grade">' +
+      '<div class="fito-grade-text">' +
+        '<h3 class="fito-grade-title" data-i18n="grading.title">' + t('grading.title') + '</h3>' +
+        '<p class="fito-grade-desc" data-i18n="grading.desc">' + t('grading.desc') + '</p>' +
+      '</div>' +
+      '<div class="fito-grade-slider" role="slider" tabindex="0" aria-label="Before / after colour grading" ' +
+           'aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--pos:50%">' +
+        '<div class="fito-grade-layer fito-grade-after">' +
+          '<img src="./assets/grade-sample.jpg" alt="" loading="lazy">' +
+        '</div>' +
+        '<div class="fito-grade-layer fito-grade-before">' +
+          '<img src="./assets/grade-sample.jpg" alt="" loading="lazy">' +
+        '</div>' +
+        '<span class="fito-grade-label is-before" data-i18n="grading.before">' + t('grading.before') + '</span>' +
+        '<span class="fito-grade-label is-after" data-i18n="grading.after">' + t('grading.after') + '</span>' +
+        '<span class="fito-grade-line" aria-hidden="true"></span>' +
+        '<span class="fito-grade-handle" aria-hidden="true">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' +
+            '<path d="M9 6 3 12l6 6M15 6l6 6-6 6"/>' +
+          '</svg>' +
+        '</span>' +
+      '</div>' +
     '</div>';
 
     wrap.innerHTML = html;
     wrap.classList.add('fito-skills-host');
+    initGradeSlider(wrap.querySelector('.fito-grade-slider'));
 
     /* Reveal on scroll, staggered by the inline transition-delay above. */
     var grid = wrap.querySelector('.fito-skills-grid');

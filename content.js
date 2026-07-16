@@ -20,6 +20,7 @@ window.FITO = {
     { id: 'mjvyK836Ob4', title: 'Simple x Digitel' },
     { id: 'OLFriuRU4Yg', title: 'Sportbiz' },
     { id: 'dmxDzJAww1U', title: 'Fina' },
+    { id: 'BNFYlDpXblI', title: 'Gatorade - Entreno' },
     { id: 'Spmo2Esb9-w', title: 'orianabrowsstudio' },
     { id: '69YvCKQcFxY', title: 'KFC x AngelRivero' }
   ],
@@ -131,6 +132,8 @@ window.FITO = {
 
       'grading.before':  'Antes',
       'grading.after':   'Después',
+      'grading.title':   'Color Grading',
+      'grading.desc':    'Corrección de color y color grading cinematográfico para darle a tus videos un estilo visual pulido y consistente. Balanceo exposición, tonos de piel y contraste, creando un look propio que refuerza tu identidad.',
 
       'faq.kicker':      'Preguntas',
       'faq.title':       'Preguntas Comunes',
@@ -224,6 +227,8 @@ window.FITO = {
 
       'grading.before':  'Before',
       'grading.after':   'After',
+      'grading.title':   'Color Grading',
+      'grading.desc':    'Professional color correction and cinematic color grading to give your videos a polished, consistent visual style. I balance exposure, skin tones, and contrast while crafting a signature look that strengthens your brand identity.',
 
       'faq.kicker':      'FAQ',
       'faq.title':       'Common Questions',
