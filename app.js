@@ -196,9 +196,6 @@
     hideSection(/^Simple Pricing\.$/);
     hideSection(/^Numbers that speak volumes$/);
     hideSection(/^Creators Worked With$/);
-    /* "Why Me" held the Extras copy, which is now the 5th row of the skills
-       list — same text twice, and its photo tile was another stock-ish image. */
-    hideSection(/^More than just "cutting" footage\.$/);
 
     /* Stats bar, plus the hero's fake social-proof row (.framer-13tth74) —
        5 star icons, 3 stock avatars, "+95" and "1B+ Views Generated". It's one
@@ -775,6 +772,126 @@
     });
   }
 
+  /* ---------------------------------------------------------------------
+     "Why Me" — swap the card's placeholder image for a retention graph that
+     draws itself as the section scrolls into view.
+     The headline percentage comes from FITO.retentionStat; see the note on it
+     in content.js — it is the template's invented figure, not Fito's data.
+     --------------------------------------------------------------------- */
+  function initRetentionGraph() {
+    var head = document.querySelector('[data-i18n="extras.1.t"]');
+    if (!head) return;
+    var card = head;
+    for (var j = 0; j < 6 && card; j++) {
+      if (card.querySelector && card.querySelector('img')) break;
+      card = card.parentElement;
+    }
+    var img = card && card.querySelector ? card.querySelector('img') : null;
+    if (!img || card.querySelector('.retention-graph')) return;
+
+    /* Drop the blur overlays / play button that belonged to the old media. */
+    var blurEls = card.querySelectorAll('[style*="backdrop-filter"]');
+    for (var b = 0; b < blurEls.length; b++) hide(blurEls[b]);
+    var overlays = card.querySelectorAll('*');
+    for (var k = 0; k < overlays.length; k++) {
+      var el = overlays[k];
+      if (el === img) continue;
+      var cs = window.getComputedStyle(el);
+      var r = el.getBoundingClientRect();
+      if (cs.position === 'absolute' && r.width > 30 && r.width < 100 &&
+          r.height > 30 && r.height < 100 && el.querySelector('svg, path')) {
+        hide(el);
+      }
+    }
+
+    var VB_W = 467, VB_H = 604, NS = 'http://www.w3.org/2000/svg';
+    var stat = FITO.retentionStat;
+    var panel = document.createElement('div');
+    panel.className = 'retention-graph';
+    panel.innerHTML =
+      '<svg class="rg-svg" viewBox="0 0 ' + VB_W + ' ' + VB_H + '" xmlns="' + NS + '">' +
+        '<defs>' +
+          '<linearGradient id="rgArea" x1="0" y1="0" x2="0" y2="1">' +
+            '<stop offset="0%" stop-color="#9933ff" stop-opacity="0.5"/>' +
+            '<stop offset="100%" stop-color="#9933ff" stop-opacity="0"/>' +
+          '</linearGradient>' +
+          '<linearGradient id="rgLine" x1="0" y1="1" x2="1" y2="0">' +
+            '<stop offset="0%" stop-color="#b366ff"/><stop offset="100%" stop-color="#8000ff"/>' +
+          '</linearGradient>' +
+          '<filter id="rgGlow" x="-40%" y="-40%" width="180%" height="180%">' +
+            '<feGaussianBlur stdDeviation="5" result="b"/>' +
+            '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>' +
+          '</filter>' +
+          '<clipPath id="rgClip"><rect x="0" y="0" width="0" height="' + VB_H + '"/></clipPath>' +
+        '</defs>' +
+        '<rect x="8" y="8" width="' + (VB_W - 16) + '" height="' + (VB_H - 16) + '" rx="24" ' +
+          'fill="rgba(13,13,13,0.35)" stroke="rgba(255,255,255,0.08)"/>' +
+        '<text class="rg-kicker" data-i18n="extras.stat.kicker" x="40" y="58">' + t('extras.stat.kicker') + '</text>' +
+        (stat == null ? '' : '<text class="rg-pct" x="38" y="132">0%</text>') +
+        '<text class="rg-sub" data-i18n="extras.stat.sub" x="40" y="' + (stat == null ? 122 : 162) + '">' + t('extras.stat.sub') + '</text>' +
+        '<g class="rg-grid"></g>' +
+        '<path class="rg-fill" fill="url(#rgArea)" clip-path="url(#rgClip)"/>' +
+        '<path class="rg-stroke" fill="none" stroke="url(#rgLine)" stroke-width="4" ' +
+          'stroke-linecap="round" stroke-linejoin="round" filter="url(#rgGlow)"/>' +
+        '<circle class="rg-dot" r="7" fill="#fff" stroke="#8000ff" stroke-width="3"/>' +
+      '</svg>';
+
+    img.parentNode.insertBefore(panel, img);
+    hide(img);
+
+    var pts = [0.08, 0.20, 0.16, 0.33, 0.42, 0.38, 0.56, 0.64, 0.60, 0.78, 0.90];
+    var gx0 = 40, gx1 = VB_W - 36, gy0 = 220, gy1 = VB_H - 56;
+    function xAt(i) { return gx0 + (gx1 - gx0) * (i / (pts.length - 1)); }
+    function yAt(v) { return gy1 - (gy1 - gy0) * v; }
+    function path(area) {
+      var d = '';
+      for (var i = 0; i < pts.length; i++) {
+        d += (i === 0 ? 'M ' : ' L ') + xAt(i).toFixed(1) + ' ' + yAt(pts[i]).toFixed(1);
+      }
+      if (area) d += ' L ' + xAt(pts.length - 1).toFixed(1) + ' ' + gy1 + ' L ' + xAt(0).toFixed(1) + ' ' + gy1 + ' Z';
+      return d;
+    }
+
+    var stroke = panel.querySelector('.rg-stroke');
+    var fill = panel.querySelector('.rg-fill');
+    var dot = panel.querySelector('.rg-dot');
+    var clipRect = panel.querySelector('#rgClip rect');
+    var pctEl = panel.querySelector('.rg-pct');
+    var grid = panel.querySelector('.rg-grid');
+    stroke.setAttribute('d', path(false));
+    fill.setAttribute('d', path(true));
+    for (var g = 0; g <= 4; g++) {
+      var gy = gy0 + (gy1 - gy0) * (g / 4);
+      var ln = document.createElementNS(NS, 'line');
+      ln.setAttribute('x1', gx0); ln.setAttribute('x2', gx1);
+      ln.setAttribute('y1', gy); ln.setAttribute('y2', gy);
+      ln.setAttribute('stroke', 'rgba(255,255,255,0.06)');
+      ln.setAttribute('stroke-width', '1');
+      grid.appendChild(ln);
+    }
+    var L = stroke.getTotalLength();
+    stroke.style.strokeDasharray = L;
+
+    function render(p) {
+      stroke.style.strokeDashoffset = L * (1 - p);
+      clipRect.setAttribute('width', (VB_W * p).toFixed(1));
+      var pt = stroke.getPointAtLength(L * p);
+      dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y);
+      dot.style.opacity = p > 0.02 ? 1 : 0;
+      if (pctEl) pctEl.textContent = Math.round(stat * p) + '%';
+    }
+    function onScroll() {
+      var rect = panel.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var p = Math.max(0, Math.min(1, 1 - rect.top / vh));
+      render(0.7 + 0.3 * p);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    render(0);
+    onScroll();
+  }
+
   function initFeatureIcons() {
     var scissors = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>';
     var zap = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>';
@@ -863,6 +980,7 @@
     initLegacyLinks();
     initImages();
     initFooter();
+    initRetentionGraph();
     initFeatureIcons();
     initColorSlider();
     initMobileMenu();

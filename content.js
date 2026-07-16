@@ -49,6 +49,16 @@ window.FITO = {
     linkedin: 'https://www.linkedin.com/in/rodolfodelgadoedit/'
   },
 
+  /* The "Why Me" retention graph's headline number.
+     ------------------------------------------------------------------
+     NOTE: this figure is inherited from the previous owner's template. It is
+     NOT measured from Fito's work, and fitoframe.com makes no such claim. It
+     reads as a verifiable performance stat to any client looking at the page.
+     Replace it with a real number, or set it to null to render the graph
+     without a percentage.
+     ------------------------------------------------------------------ */
+  retentionStat: 90,
+
   /* The designer credit in the footer (from the live site).
      Left in English in both languages, exactly as the live site has it. */
   designer: {
@@ -90,15 +100,18 @@ window.FITO = {
       'skill.5.t':       'Extras',
       'skill.5.d':       'Trabajo individual y en equipo, buena compresión de lo que se necesita, buena narrativa visual y conocimiento en producción.',
 
-      'extras.kicker':   'Extras',
+      'extras.kicker':   'Por qué yo',
       'extras.title':    'Más que solo "cortar" material.',
-      'extras.sub':      'Trabajo individual y en equipo, buena compresión de lo que se necesita, buena narrativa visual y conocimiento en producción.',
-      'extras.1.t':      'Trabajo en equipo',
-      'extras.1.d':      'Trabajo individual y en equipo, con buena compresión de lo que se necesita.',
-      'extras.2.t':      'Narrativa visual',
-      'extras.2.d':      'Buena narrativa visual para que cada pieza cuente algo.',
-      'extras.3.t':      'Producción',
-      'extras.3.d':      'Conocimiento en producción, dentro y fuera del set.',
+      'extras.sub':      'Cada frame se piensa con intención — de los cortes y el motion al color y el sonido.',
+      'extras.1.t':      'Edición basada en retención',
+      'extras.1.d':      'Tu contenido debe fluir tan natural que el espectador nunca piense en la edición.',
+      'extras.2.t':      'Revisiones hasta quedar conforme',
+      'extras.2.d':      'Sé la diferencia entre un "Jump-cut" de YouTube y un "Zoom-cut" de TikTok.',
+      'extras.3.t':      'Entrega rápida',
+      'extras.3.d':      'Entrega en 48-72 horas para contenido short-form. No más fechas de subida perdidas.',
+      /* Labels for the animated retention graph. See the NOTE on extras.stat.value. */
+      'extras.stat.kicker': 'RETENCIÓN DE AUDIENCIA',
+      'extras.stat.sub':    'retención promedio por edición',
 
       'work.kicker':     'Videos',
       'work.title':      'Videos',
@@ -180,15 +193,18 @@ window.FITO = {
       'skill.5.t':       'Extras',
       'skill.5.d':       'I work both solo and in teams, with a solid grasp of what’s needed, strong visual storytelling, and production know-how.',
 
-      'extras.kicker':   'Extras',
+      'extras.kicker':   'Why Me',
       'extras.title':    'More than just "cutting" footage.',
-      'extras.sub':      'I work solo and in teams, with a solid grasp of what’s needed, strong visual storytelling, and production know-how.',
-      'extras.1.t':      'Teamwork',
-      'extras.1.d':      'I work both solo and in teams, with a solid grasp of what’s needed.',
-      'extras.2.t':      'Visual storytelling',
-      'extras.2.d':      'Strong visual narrative, so every piece actually says something.',
-      'extras.3.t':      'Production',
-      'extras.3.d':      'Production know-how, on set and off.',
+      'extras.sub':      'Every frame is shaped with intention — from clean cuts and motion to balanced color and sound.',
+      'extras.1.t':      'Retention Based Edit',
+      'extras.1.d':      'Your content should flow so naturally the viewer never thinks about the edit.',
+      'extras.2.t':      'Revisions Until Satisfied',
+      'extras.2.d':      'I know the difference between a YouTube "Jump-cut" and a TikTok "Zoom-cut."',
+      'extras.3.t':      'Fast Turnaround',
+      'extras.3.d':      '48-72 hour delivery for short-form content. No more missed upload dates.',
+      /* Labels for the animated retention graph. See the NOTE on extras.stat.value. */
+      'extras.stat.kicker': 'AUDIENCE RETENTION',
+      'extras.stat.sub':    'avg. viewer retention per edit',
 
       'work.kicker':     'Videos',
       'work.title':      'Videos',
