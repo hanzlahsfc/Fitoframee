@@ -1,0 +1,587 @@
+/* Global background: red gradient fixed across the whole page */
+html {
+  background:
+    radial-gradient(120% 140% at 50% 0%, rgba(255, 0, 0, 0.12) 0%, rgba(10, 10, 10, 0) 55%),
+    linear-gradient(180deg, #0d0d0d 0%, #060606 100%) !important;
+  background-attachment: fixed !important;
+}
+body, .framer-gvib3.framer-mq0uyz {
+  background: transparent !important;
+}
+.framer-gvib3,
+.framer-gvib3 > * {
+  background: transparent !important;
+}
+/* Full-width section shells ship an opaque rgb(10,10,10) fill that blocks the
+   fixed red gradient on <html>, cutting it into hard bands between sections.
+   Make the section shells transparent so the gradient flows continuously.
+   (Content cards keep their own darker fills — only the section wrappers here.) */
+.framer-gvib3 section {
+  background: transparent !important;
+}
+.framer-gvib3 nav.framer-ujUI6,
+.framer-qu8arv-container {
+  background: transparent !important;
+}
+nav.framer-ujUI6 {
+  background-color: rgba(13, 13, 13, 0.5) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+}
+.wa-floating-btn {
+  background-color: #25D366 !important;
+}
+
+/* Cursor tracker — red dot that follows the mouse */
+.cursor-dot {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: #ff0000;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s, height 0.15s, background 0.15s;
+  mix-blend-mode: difference;
+}
+.cursor-dot.hovering {
+  width: 24px;
+  height: 24px;
+  background: #ff4444;
+}
+
+/* ==========================================================================
+   PORTFOLIO CARDS — "Selected Editing Work"
+   The Framer export nests every card inside one extra wrapper <div> that sat in
+   column 1 of a 3-col grid, so all cards stacked in a single left column.
+   Fix: collapse the wrapper with display:contents so each card becomes a real
+   grid item, and force every card to a uniform 9:16 portrait frame. Landscape
+   (YouTube) embeds are centered inside the frame rather than distorted.
+   ========================================================================== */
+.framer-m18xux {
+  display: grid !important;
+  /* Auto-responsive: ~3 cols on desktop, 2 on tablet, 1 on phone — without
+     relying on fixed viewport breakpoints, and never overflowing narrow screens */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)) !important;
+  column-count: auto !important;
+  gap: 24px !important;
+  align-items: start !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Collapse the extra Framer wrapper so cards become direct grid items */
+.framer-m18xux > div {
+  display: contents !important;
+}
+
+/* Each card = uniform 9:16 portrait frame */
+.framer-m18xux > div > * {
+  width: 100% !important;
+  aspect-ratio: 9 / 16 !important;
+  height: auto !important;
+  margin: 0 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #0a0a0a !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.framer-m18xux > div > *:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 40px rgba(255, 69, 69, 0.18) !important;
+}
+
+/* Media (iframe/img/embed wrapper) fills width, keeps its own ratio, centered */
+.framer-m18xux > div > * > * {
+  width: 100% !important;
+  max-height: 100% !important;
+  flex: 0 0 auto !important;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+  .framer-m18xux { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* Mobile: single column */
+@media (max-width: 640px) {
+  .framer-m18xux { grid-template-columns: 1fr !important; }
+}
+
+/* Mobile safety: keep long email/phone pills from overflowing the screen */
+@media (max-width: 600px) {
+  .framer-1q1vsss .framer-ogemz6 {
+    max-width: 100% !important;
+    flex-wrap: wrap !important;
+    word-break: break-word !important;
+    box-sizing: border-box !important;
+  }
+  .framer-1q1vsss { max-width: 100% !important; }
+}
+
+/* ==========================================================================
+   CONTACT SECTION — "Book a Call"
+   The Framer export shipped this section broken: the right-hand media box is an
+   empty placeholder, the Email/Phone labels collapsed onto their values, the
+   "Follow Me On" label was squeezed into a 51px box (wrapped to 3 lines) and the
+   social icons stacked vertically. Rebuild it as a clean left-aligned block.
+   ========================================================================== */
+.framer-1s1nl7r,
+.framer-1s1nl7r .framer-1gqrt5x,
+.framer-1s1nl7r .framer-1oxw26l {
+  background: transparent !important;
+  text-align: left !important;
+}
+
+/* Stack the outer wrapper and hide the empty media void on the right */
+.framer-1s1nl7r .framer-1gqrt5x {
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 8px !important;
+}
+.framer-1s1nl7r .framer-i73j2h {
+  display: none !important;
+}
+.framer-1s1nl7r .framer-1oxw26l {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Description: undo the centering the old rule forced with margin:auto */
+.framer-1s1nl7r .framer-1canf3n {
+  max-width: 620px !important;
+  margin: 16px 0 0 0 !important;
+  text-align: left !important;
+}
+.framer-1s1nl7r .framer-1canf3n p { text-align: left !important; }
+
+/* Info block: labelled fields + socials, left aligned */
+.framer-1s1nl7r .framer-1q1vsss {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 28px !important;
+  width: 100% !important;
+  height: auto !important;
+  margin-top: 36px !important;
+}
+
+/* Each field block: label stacked above the value */
+.framer-1q1vsss .framer-16qrgc,
+.framer-1q1vsss .framer-1f5pkj2 {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  align-items: flex-start !important;
+  width: auto !important;
+  height: auto !important;
+}
+.framer-1q1vsss .framer-mnb0lz,
+.framer-1q1vsss .framer-1fp8xz9 {
+  width: auto !important;
+  height: auto !important;
+  position: static !important;
+}
+
+/* Email / phone value as a subtle pill */
+.framer-1q1vsss .framer-ogemz6 {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 12px 18px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 10px !important;
+  text-decoration: none !important;
+  position: static !important;
+  transition: all 0.25s ease !important;
+}
+.framer-1q1vsss .framer-ogemz6:hover {
+  border-color: rgba(255, 69, 69, 0.5) !important;
+  background: rgba(255, 69, 69, 0.08) !important;
+}
+
+/* Follow Me On: label on one line, icons in a row */
+.framer-1q1vsss .framer-1vitiol {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+  width: auto !important;
+  height: auto !important;
+  align-items: flex-start !important;
+}
+.framer-1q1vsss .framer-12gbk8d {
+  width: auto !important;
+  height: auto !important;
+}
+.framer-1q1vsss .framer-12gbk8d .framer-text {
+  white-space: nowrap !important;
+  width: auto !important;
+}
+.framer-1q1vsss .framer-6ysf0r {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 12px !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Email / phone text white */
+.framer-1q1vsss .framer-ogemz6,
+.framer-1q1vsss .framer-ogemz6 * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Remove the "Follow Me On" block from the Contact section entirely */
+.framer-1q1vsss .framer-1vitiol {
+  display: none !important;
+}
+
+/* Footer socials: keep only X, Instagram, TikTok (hide YouTube) */
+footer .framer-ohx6u0-container {
+  display: none !important;
+}
+
+/* Portfolio cards are vertical YouTube Shorts (click plays inline) */
+.framer-m18xux > div > .pf-card,
+.framer-m18xux > div > * {
+  background: #000 !important;
+}
+.framer-m18xux > div > .pf-card {
+  display: block !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+.framer-m18xux > div > .pf-card img {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  border-radius: 16px !important;
+  display: block !important;
+}
+.framer-m18xux > div > .pf-card iframe {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+  border-radius: 16px !important;
+}
+.framer-m18xux .pf-play {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 58px !important;
+  height: 58px !important;
+  background: rgba(0, 0, 0, 0.55) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: none !important;
+  transition: background 0.25s ease, transform 0.25s ease !important;
+}
+.framer-m18xux .pf-play svg {
+  width: 24px !important;
+  height: 24px !important;
+  margin-left: 3px !important;
+}
+.framer-m18xux > div > .pf-card:hover .pf-play {
+  background: #ff0000 !important;
+  transform: translate(-50%, -50%) scale(1.08) !important;
+}
+.framer-m18xux > div > .pf-card:hover {
+  transform: translateY(-6px) !important;
+}
+
+/* Service card images — make them bigger */
+.framer-5IQds .framer-12f1gwt,
+.framer-5IQds .framer-a7m40w,
+.framer-5IQds .framer-12vqwha,
+.framer-5IQds .framer-1d6x2tg {
+  flex: 1.5 0 0 !important;
+  max-width: 60% !important;
+  min-height: 300px !important;
+}
+.framer-5IQds .framer-12f1gwt img {
+  object-fit: cover !important;
+  object-position: center !important;
+}
+/* Ensure text column stays same width too */
+.framer-5IQds .framer-1w8bmwe,
+.framer-5IQds .framer-16xf2zi,
+.framer-5IQds .framer-uvhnut,
+.framer-5IQds .framer-rukvmu {
+  flex: 1 0 0 !important;
+  min-width: 320px !important;
+}
+/* Color Grading slider — keep images inside bounds */
+.framer-5IQds .framer-1gsef12-container img {
+  object-fit: contain !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ==========================================================================
+   WORK GRID — horizontal (long-form) videos & Frame.io
+   The base rules above force every grid item to a 9:16 portrait frame, which is
+   right for Shorts but stretches the 16:9 long-form videos and the Frame.io card
+   into a giant distorted vertical box. Give those a proper landscape frame that
+   spans the full row instead.
+   ========================================================================== */
+/* Raw long-form iframe in the "All" tab */
+.framer-m18xux > div > iframe {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: 720px !important;
+  margin: 0 auto !important;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  border-radius: 22px !important;
+}
+/* Long-form video cards & Frame.io card (any .pf-card that isn't a Short) */
+.framer-m18xux > div > .pf-card:not([data-type="short"]) {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: 720px !important;
+  margin: 0 auto !important;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  display: block !important;
+}
+.framer-m18xux > div > .pf-card:not([data-type="short"]) > * {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+}
+.framer-m18xux > div > .pf-card:not([data-type="short"]) iframe {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: auto !important;
+  border: 0 !important;
+}
+
+/* ==========================================================================
+   WORK FILTER TABS — active highlight
+   The Framer export baked the "active" look into the *All* tab's own instance
+   styles, so the highlight never moved when another tab was clicked. The JS does
+   correctly flip data-framer-name="Active" on the clicked tab, so drive the
+   highlight off that attribute instead (on-brand red).
+   ========================================================================== */
+.framer-103g85l [data-framer-name="Default"] .framer-text {
+  color: #888888 !important;
+}
+.framer-103g85l [data-framer-name="Active"] .framer-text {
+  color: #ff2a2a !important;
+}
+
+/* ==========================================================================
+   RETENTION GRAPH — replaces the old "Retention Based Edit" placeholder image
+   with a custom scroll-driven rising line chart (animated in JS).
+   ========================================================================== */
+.retention-graph {
+  width: 100%;
+  aspect-ratio: 467 / 604;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 30% 0%, rgba(255, 0, 0, 0.10), rgba(0, 0, 0, 0) 60%),
+    linear-gradient(180deg, rgba(20, 8, 8, 0.55), rgba(6, 6, 6, 0.55));
+}
+.retention-graph .rg-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.retention-graph text { font-family: inherit; }
+.retention-graph .rg-kicker {
+  fill: #ff5a5a;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+.retention-graph .rg-pct {
+  fill: #ffffff;
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.retention-graph .rg-sub {
+  fill: rgba(255, 255, 255, 0.55);
+  font-size: 15px;
+  font-weight: 500;
+}
+.retention-graph .rg-dot {
+  filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.9));
+  transition: opacity 0.2s ease;
+}
+
+/* Hide pricing section entirely */
+section#pricing {
+  display: none !important;
+}
+
+/* Floating WhatsApp button — nudge a little lower */
+.wa-floating-btn {
+  bottom: 52px !important;
+}
+
+/* Feature tiles (Native Style / Fast Turnaround): center the injected icon */
+.framer-8x6134,
+.framer-3559ih {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 12px !important;
+}
+.framer-8x6134 svg,
+.framer-3559ih svg {
+  width: 26px !important;
+  height: 26px !important;
+  display: block !important;
+}
+
+/* Hide slideshow controls */
+[aria-label="Slideshow pagination controls"],
+[aria-label="Previous"],
+[aria-label="Next"] {
+  display: none !important;
+}
+
+/* NOTE: native `scroll-behavior: smooth` is broken on this Framer export
+   (transformed ancestors break it), so smooth scrolling is handled in JS. */
+
+/* Remove the logo (icon + wordmark) from the header and footer */
+.framer-1b0m7h5-container,   /* header logo */
+.framer-1gcn1uh-container {  /* footer logo */
+  display: none !important;
+}
+
+/* Footer — add life (it looked dull): soft red glow + accent divider line */
+footer.framer-axgd5s {
+  position: relative !important;
+  background:
+    radial-gradient(120% 140% at 50% 0%, rgba(255, 0, 0, 0.12) 0%, rgba(10, 10, 10, 0) 55%),
+    linear-gradient(180deg, #0d0d0d 0%, #060606 100%) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  overflow: hidden !important;
+}
+footer.framer-axgd5s::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  max-width: 620px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.7), transparent) !important;
+  filter: blur(0.3px);
+}
+footer.framer-axgd5s::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -140px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 480px;
+  height: 280px;
+  background: radial-gradient(closest-side, rgba(255, 0, 0, 0.18), rgba(255, 0, 0, 0) 70%) !important;
+  pointer-events: none !important;
+  z-index: 0;
+}
+
+/* Mobile: one full-width video card at a time (like the reference) */
+@media (max-width: 700px) {
+  .framer-m18xux {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Mobile only: hero layout — image on top, text column below */
+@media (max-width: 809.98px) {
+  .framer-5IQds .framer-1a6yjc2 {
+    padding-bottom: 0px !important;
+  }
+  .framer-5IQds .framer-zfc0mn {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .framer-5IQds .framer-1ougko3 {
+    order: 0 !important;
+  }
+  .framer-5IQds .framer-yuzlh6 {
+    order: 1 !important;
+    align-items: center !important;
+  }
+  .framer-5IQds .framer-14xk4kr {
+    gap: 10px !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  .framer-5IQds .framer-10n4a2-container {
+    order: 0 !important;
+  }
+  .framer-5IQds .framer-9bevb6 {
+    display: contents !important;
+  }
+  .framer-5IQds .framer-17s3yi0-container {
+    order: 1 !important;
+  }
+  .framer-5IQds .framer-1strct8-container {
+    order: 2 !important;
+  }
+  .framer-5IQds .framer-zgjeti {
+    display: none !important;
+  }
+  .framer-5IQds .framer-kzphr9 {
+    order: 3 !important;
+  }
+
+  /* Footer: center copyright, hide Built By, make Hanzlah glow red on hover */
+  .framer-1wathli {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .framer-li5uxv {
+    text-align: center !important;
+  }
+  .framer-1jz743r {
+    display: none !important;
+  }
+  .framer-1u96wp1 .framer-dm0qcw-container:hover p {
+    color: #ff0000 !important;
+    text-shadow: 0 0 12px rgba(255, 0, 0, 0.9), 0 0 30px rgba(255, 0, 0, 0.5) !important;
+  }
+}
+
+/* Mobile dropdown menu styles */
+.mobile-menu {
+  background: rgba(10, 10, 10, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0 0 24px 24px;
+  border-top: none;
+}
+.mobile-menu-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.mobile-menu-cta:hover {
+  opacity: 0.9;
+}
