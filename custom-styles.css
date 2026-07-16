@@ -280,29 +280,99 @@ footer .framer-ohx6u0-container {
   border: 0 !important;
   border-radius: 16px !important;
 }
+/* Real YouTube play button, not a purple circle. */
 .framer-m18xux .pf-play {
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
-  width: 58px !important;
-  height: 58px !important;
-  background: rgba(0, 0, 0, 0.55) !important;
-  border-radius: 50% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  width: 68px !important;
+  height: 48px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: none !important;
+  cursor: pointer !important;
   pointer-events: none !important;
-  transition: background 0.25s ease, transform 0.25s ease !important;
+  z-index: 3 !important;
+  transition: transform 0.25s ease !important;
 }
-.framer-m18xux .pf-play svg {
-  width: 24px !important;
-  height: 24px !important;
-  margin-left: 3px !important;
+.framer-m18xux .pf-play .pf-yt {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+.framer-m18xux .pf-play .pf-yt-bg {
+  fill: #212121 !important;
+  fill-opacity: 0.8 !important;
+  transition: fill 0.2s ease, fill-opacity 0.2s ease !important;
 }
 .framer-m18xux > div > .pf-card:hover .pf-play {
-  background: #8000ff !important;
-  transform: translate(-50%, -50%) scale(1.08) !important;
+  transform: translate(-50%, -50%) scale(1.06) !important;
+}
+.framer-m18xux > div > .pf-card:hover .pf-play .pf-yt-bg {
+  fill: #ff0000 !important;
+  fill-opacity: 1 !important;
+}
+
+/* Channel header overlay, mirroring an unstarted YouTube embed. */
+.framer-m18xux > div > .pf-card .pf-head {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-height: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  padding: 12px 12px 26px !important;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0) 100%) !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  box-sizing: border-box !important;
+}
+.framer-m18xux > div > .pf-card .pf-avatar {
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+.framer-m18xux > div > .pf-card .pf-meta {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1px !important;
+  min-width: 0 !important;
+  width: auto !important;
+  overflow: hidden !important;
+}
+.framer-m18xux > div > .pf-card .pf-title,
+.framer-m18xux > div > .pf-card .pf-channel {
+  display: block !important;
+  width: auto !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  line-height: 1.25 !important;
+}
+.framer-m18xux > div > .pf-card .pf-title {
+  color: #fff !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+}
+.framer-m18xux > div > .pf-card .pf-channel {
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+}
+.framer-m18xux > div > .pf-card .pf-thumb {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
 }
 .framer-m18xux > div > .pf-card:hover {
   transform: translateY(-6px) !important;
@@ -334,45 +404,6 @@ footer .framer-ohx6u0-container {
   object-fit: contain !important;
   width: 100% !important;
   height: 100% !important;
-}
-
-/* ==========================================================================
-   WORK GRID — horizontal (long-form) videos & Frame.io
-   The base rules above force every grid item to a 9:16 portrait frame, which is
-   right for Shorts but stretches the 16:9 long-form videos and the Frame.io card
-   into a giant distorted vertical box. Give those a proper landscape frame that
-   spans the full row instead.
-   ========================================================================== */
-/* Raw long-form iframe in the "All" tab */
-.framer-m18xux > div > iframe {
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
-  max-width: 720px !important;
-  margin: 0 auto !important;
-  aspect-ratio: 16 / 9 !important;
-  height: auto !important;
-  border-radius: 22px !important;
-}
-/* Long-form video cards & Frame.io card (any .pf-card that isn't a Short) */
-.framer-m18xux > div > .pf-card:not([data-type="short"]) {
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
-  max-width: 720px !important;
-  margin: 0 auto !important;
-  aspect-ratio: 16 / 9 !important;
-  height: auto !important;
-  display: block !important;
-}
-.framer-m18xux > div > .pf-card:not([data-type="short"]) > * {
-  width: 100% !important;
-  height: 100% !important;
-  max-height: none !important;
-}
-.framer-m18xux > div > .pf-card:not([data-type="short"]) iframe {
-  width: 100% !important;
-  height: 100% !important;
-  aspect-ratio: auto !important;
-  border: 0 !important;
 }
 
 /* ==========================================================================
@@ -584,4 +615,320 @@ footer.framer-axgd5s::after {
 }
 .mobile-menu-cta:hover {
   opacity: 0.9;
+}
+
+/* ==========================================================================
+   Fitoframe — content rebuild (see content.js / app.js)
+   ========================================================================== */
+
+/* The socials block was hidden by the old build. The live site does show
+   "Mis redes sociales" on contact, so bring it back (app.js rebuilds the row
+   with Fito's real Instagram / TikTok / X / LinkedIn links). */
+.framer-1q1vsss .framer-1vitiol {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+.fito-social-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  width: auto !important;
+  height: auto !important;
+}
+.fito-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.fito-social svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.fito-social:hover {
+  background: rgba(128, 0, 255, 0.22);
+  border-color: #8000ff;
+  transform: translateY(-2px);
+}
+
+/* ---- Language switcher (ES | EN) ---------------------------------------- */
+.fito-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  flex: none;
+  z-index: 20;
+}
+.fito-lang button {
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.62);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.fito-lang button:hover {
+  color: #fff;
+}
+.fito-lang button.is-active {
+  background: #8000ff;
+  color: #fff;
+}
+.fito-lang-sep {
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.18);
+}
+/* Floats at the top-right of the viewport, deliberately clear of the header
+   pill — inside the nav it collided with the "Contact me" CTA. app.js toggles
+   this on/off depending on which nav is actually visible. */
+.fito-lang.is-floating {
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  z-index: 60;
+  background: rgba(13, 13, 13, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 810px) {
+  .fito-lang button {
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+}
+
+/* "Worked with Gatorade, KFC..." line injected under the hero bio */
+.fito-brands {
+  margin-top: 14px !important;
+  color: rgba(235, 235, 235, 0.72) !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  max-width: 620px;
+}
+.fito-brands:empty { display: none; }
+
+
+/* ==========================================================================
+   SKILLS — animated icon list on a timeline (replaces the template's four
+   giant alternating image/text blocks; see initSkills() in app.js)
+   ========================================================================== */
+.fito-skills-host {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* Two columns: timeline left, photo collage right (mirrors the live site). */
+.fito-skills-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+}
+
+/* ---- Photo collage ---------------------------------------------------- */
+.fito-collage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 6 / 5;
+  min-height: 380px;
+}
+.fito-collage-block,
+.fito-collage-a,
+.fito-collage-b {
+  position: absolute;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fito-skills-grid.is-in .fito-collage-block,
+.fito-skills-grid.is-in .fito-collage-a,
+.fito-skills-grid.is-in .fito-collage-b {
+  opacity: 1;
+  transform: none;
+}
+.fito-skills-grid.is-in .fito-collage-block { transition-delay: 120ms; }
+.fito-skills-grid.is-in .fito-collage-a { transition-delay: 220ms; }
+.fito-skills-grid.is-in .fito-collage-b { transition-delay: 320ms; }
+
+/* Purple slab peeking out from behind the photos */
+.fito-collage-block {
+  left: 6%;
+  top: 30%;
+  width: 46%;
+  height: 50%;
+  background: linear-gradient(150deg, #8000ff 0%, #4b0099 100%);
+  z-index: 0;
+}
+/* Camera body — smaller, upper-left */
+.fito-collage-a {
+  left: 0;
+  top: 2%;
+  width: 50%;
+  height: 54%;
+  object-fit: cover;
+  z-index: 1;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+/* On-location shot — taller, right, overlapping the slab */
+.fito-collage-b {
+  right: 0;
+  top: 0;
+  width: 54%;
+  height: 96%;
+  object-fit: cover;
+  z-index: 2;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+/* Slow drift so the collage isn't dead on the page */
+.fito-skills-grid.is-in .fito-collage-a { animation: fito-float 7s ease-in-out 1.2s infinite; }
+.fito-skills-grid.is-in .fito-collage-b { animation: fito-float 9s ease-in-out 1.6s infinite reverse; }
+@keyframes fito-float {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fito-skills-grid.is-in .fito-collage-a,
+  .fito-skills-grid.is-in .fito-collage-b { animation: none; }
+}
+
+@media (max-width: 900px) {
+  .fito-skills-grid { grid-template-columns: 1fr; gap: 34px; }
+  .fito-collage { min-height: 300px; aspect-ratio: 5 / 4; }
+}
+
+.fito-skills {
+  position: relative;
+  padding: 8px 0 8px 0;
+  width: 100%;
+}
+
+/* The vertical rail. Draws itself downward when the list scrolls in. */
+.fito-skills-line {
+  position: absolute;
+  left: 27px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(180deg, #8000ff 0%, rgba(128, 0, 255, 0.15) 100%);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fito-skills.is-in .fito-skills-line { transform: scaleY(1); }
+
+.fito-skills-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.fito-skill {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding-left: 4px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fito-skill.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Little tick joining each row to the rail */
+.fito-skill-tick {
+  position: absolute;
+  left: -8px;
+  top: 26px;
+  width: 12px;
+  height: 2px;
+  background: rgba(128, 0, 255, 0.55);
+}
+
+.fito-skill-icon {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(145deg, #9d4dff 0%, #6a00d6 100%);
+  box-shadow: 0 6px 18px rgba(128, 0, 255, 0.28);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.fito-skill-icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fito-skill:hover .fito-skill-icon {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 26px rgba(128, 0, 255, 0.45);
+}
+
+.fito-skill-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 4px;
+}
+.fito-skill-title {
+  margin: 0;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.fito-skill-desc {
+  margin: 0;
+  color: rgba(235, 235, 235, 0.68);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+@media (max-width: 600px) {
+  .fito-skills-line { left: 22px; }
+  .fito-skill { gap: 14px; }
+  .fito-skill-icon { width: 44px; height: 44px; border-radius: 12px; }
+  .fito-skill-icon svg { width: 20px; height: 20px; }
+  .fito-skill-title { font-size: 17px; }
+  .fito-skill-desc { font-size: 14px; }
 }

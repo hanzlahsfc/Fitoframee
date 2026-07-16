@@ -1,90 +1,87 @@
-# index.html — Structure Breakdown
+# Project Structure
 
-This file is a single-page website. Here's how it's organized from top to bottom:
+## Files
 
-## `<head>` — CSS & Metadata (Lines 1-82)
+| File | Role | Edit? |
+|------|------|-------|
+| `index.html` | Framer SSR export: markup + ~200KB generated CSS | **Avoid** — only `<head>`/meta |
+| `content.js` | **All site copy (ES + EN), videos, contact, socials** | **Yes — start here** |
+| `app.js` | Maps `content.js` onto the markup; language switch; behaviour | Yes |
+| `custom-styles.css` | Overrides on top of Framer's CSS | Yes |
+| `assets/` | Fito's photos from the live site | — |
 
-| Section | Lines | What it is |
-|---------|-------|------------|
-| Meta tags | 6-31 | charset, viewport, title, description, OG tags |
-| Font CSS | 33-77 | Inter and Satoshi font faces (loaded from Framer CDN) |
-| Badge hide | 12 | `#__framer-badge-container{display:none}` |
-| Breakpoint CSS | 79 | Responsive show/hide classes for 3 breakpoints |
-| Framer CSS | 79 (cont'd) | 200KB+ of minified Framer-generated styles — **do not edit** |
+Legacy files from the previous owner's build (`profile.jpg`, `pfp-fitoframe.png`,
+`vaibhav-suri.jpeg`, `shulin-chen.jpeg`, `josh-redic.jpeg`, `hamza-khan.jpeg`,
+`allen-lee.jpeg`, `index.html.backup`, `fetched.html`, `numbers_section.txt`,
+`find_images.py`) are no longer referenced by the rendered page.
 
-## `<body>` — Visual Content (Lines 83-111, mostly inline)
-
-The entire visible page is inside a **single compressed line** (starts at line 89). It contains:
-
-```
-div#main
-  └── div.framer-gvib3 (page wrapper)
-        ├── nav.framer-ujUI6 — Navigation bar (logo, links, Book a Call)
-        ├── section 1 — Hero section (title, subtitle, CTA buttons)
-        ├── section 2 — Stats bar (4+ years, 99% happy, 200+ creators)
-        ├── section 3 — About section
-        ├── section 4 — Portfolio/Work section
-        │     └── framer-slideshow (x3) — Video carousels with dot nav
-        ├── section 5 — Testimonials (4 client cards)
-        ├── section 6 — Pricing card
-        ├── section 7 — FAQ accordion (5 items, answers empty — injected by JS)
-        └── section 8 — Contact (email, phone, social icons)
-  ├── div.framer-whatsapp-container — WhatsApp social icon
-  ├── a (floating WhatsApp button) — Green circle, bottom-right
-  └── footer.framer-axgd5s — Logo, copyright
-```
-
-### How to edit content
-
-**Portfolio videos** — Search for `framer-slideshow`. Inside each `<li>`, find:
-```html
-<video src="https://..." poster="..." ...></video>
-```
-Replace `src` with your video URL.
-
-**FAQ questions** — Search for `framer-jVp2e`. Each one has a question inside `framer-1jye8hs`. Answers are injected via JS (see below).
-
-**Social links** — Search for these URLs and replace:
-- `https://x.com/home` → your X profile
-- `https://www.instagram.com/` → your Instagram
-- `https://www.youtube.com/` → your YouTube
-- `https://www.tiktok.com/en/` → your TikTok
-- `https://wa.me/92330195488` → your WhatsApp
-
-## `<body>` — Scripts (Lines 112-255)
-
-| Lines | What it is | Can I remove it? |
-|-------|------------|------------------|
-| 112-113 | Framer URL parameter preserver | **Yes** — safe to remove |
-| 115 | `#__framer-badge-container` | Hidden by CSS, **safe to remove** |
-| 116 | Framer animator library (spring physics) | Keep — powers scroll animations |
-| 117 | Appear animation JSON config | Keep — works with animator |
-| 118 | Appear animation loader | Keep — triggers scroll animations |
-| 119 | `NODE_ENV=production` shim | Safe to remove |
-| 120 | Framer modulepreload links | Inert (no loader script), safe to remove |
-| 120-131 | SVG icon templates | **Keep** — used by `<use href="#svg-id">` throughout |
-| **132-255** | **Custom JS — FAQ + Slideshow** | **OUR CODE — edit freely** |
-
-## Custom Script (Lines 132-255)
-
-### `faqData` (Lines 135-139)
-Object mapping question text → answer text. **Edit answers here.**
-
-### `initFAQ()` (Lines 141-178)
-Finds all `.framer-jVp2e` accordion items, injects answers, adds click toggles.
-
-### `initSlideshows()` (Lines 180-243)
-Finds all `.framer-slideshow` elements, enables dot/arrow navigation.
-
-## Summary
+## `index.html` layout
 
 ```
-HEAD ──── meta ª fonts ª Framer CSS (200KB) ──── DO NOT TOUCH
-BODY ──── compressed Framer SSR HTML ──── edit videos/social links here
-          ª framer-slideshow (portfolio videos)
-          ª framer-jVp2e (FAQ accordion questions)
-          ª social link URLs
-SCRIPTS ─ framer animator (keep for animations)
-          ª appear animation loader (keep for scroll effects)
-          └── OUR CUSTOM JS (FAQ + slideshow logic)
+<head>   meta / title / OG  ── safe to edit
+         custom-styles.css?v=2
+         Framer font + design CSS (200KB) ── DO NOT TOUCH
+<body>   #main > .framer-gvib3
+           ├── nav (x2 — one per breakpoint: "desktop", "mobile-close")
+           ├── section  Hero        → name, role, bio, brands line
+           ├── section  Stats       → HIDDEN (invented numbers)
+           ├── section  Services    → repurposed as SKILLS (4 cards)
+           ├── section  Work        → the 8 YouTube Shorts
+           ├── section  Why Me      → repurposed as EXTRAS
+           ├── section  Process     → HIDDEN (invented workflow)
+           ├── section  Testimonials→ HIDDEN (invented people)
+           ├── section  Pricing     → HIDDEN (invented $1900 plan)
+           ├── section  Contact     → email / phone / socials
+           ├── section  FAQ         → Fito's 4 real questions
+           └── footer               → credit line + socials
+         SVG icon templates (used via <use href="#id">) ── keep
+         content.js?v=2
+         app.js?v=2
 ```
+
+## How content gets in
+
+The export's class names are minified, so `app.js` matches on the **template's original
+English text** instead:
+
+```js
+['Video Agency', 'hero.role']            // exact match
+[{ p: 'Fitoframe is a video agency' }, 'hero.bio']   // prefix match (long paragraphs)
+```
+
+`indexContent()` tags the deepest matching element with `data-i18n="hero.role"`;
+`applyText()` then swaps `textContent` on every tagged element for the active language.
+Language choice persists in `localStorage` under `fito-lang`.
+
+## `app.js` functions
+
+| Function | Does |
+|----------|------|
+| `indexContent()` | Tags elements with `data-i18n` keys |
+| `applyText()` | Writes the active language into tagged elements |
+| `initStripTemplate()` | Hides testimonials / pricing / stats / process / Calendly |
+| `initBrandsLine()` | Injects the "Gatorade, KFC…" line under the hero bio |
+| `initPortfolio()` | Renders the 8 Shorts; click plays inline |
+| `initFAQ()` | Maps the 4 accordion rows to Fito's Q&As; toggling |
+| `initContact()` | Real email / phone |
+| `initSocials()` | Rebuilds contact + footer social rows |
+| `initLegacyLinks()` | Repoints anything left aimed at the previous owner |
+| `initImages()` | Fito's photos onto profile + skill cards |
+| `initFooter()` | "Copyright Fitoframe© 2025. Designed by Hanzlahsfc" |
+| `initLangSwitcher()` | Inserts the ES/EN toggle into **every** nav |
+| `initColorSlider()` | Before/after grading slider |
+| `initMobileMenu()` | Hamburger menu |
+| `initFixLinks()` | Smooth-scroll (Framer blocks native anchors) |
+
+## Gotchas
+
+- **`hide()` must use `!important`.** Framer ships
+  `[data-framer-component-type="RichTextContainer"] p.framer-text { display: block !important }`,
+  which silently beats a plain inline `display:none`.
+- **Framer renders one nav per breakpoint.** Anything injected into "the nav" must go
+  into *all* of them, or it vanishes on mobile.
+- **Framer duplicates link labels** for its hover effect — nav text reads
+  `"ProcessProcess"`. Match on `href`, not text.
+- **Cards need `data-type="short"`.** Without it, `custom-styles.css` treats a card as
+  long-form and forces it to 16:9 full-row.
+- **Bump `?v=` when editing CSS/JS**, or browsers serve the stale build.
