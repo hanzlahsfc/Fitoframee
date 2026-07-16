@@ -106,6 +106,18 @@ window.FITO = {
       'work.title':      'Videos',
       'work.sub':        'Una muestra de mi trabajo audiovisual.',
 
+      'process.kicker':  'Proceso',
+      'process.title':   'Del archivo en bruto al render.',
+      'process.sub':     'Cómo trabajamos juntos, paso a paso.',
+      'process.1.t':     'Recibo el material',
+      'process.1.d':     'Me compartes tu material por Google Drive o Dropbox.',
+      'process.2.t':     'Edición y ritmo',
+      'process.2.d':     'Aplico ritmo, diseño de sonido y motion graphics.',
+      'process.3.t':     'Revisiones',
+      'process.3.d':     'Recibes 2 rondas de revisiones por Frame.io.',
+      'process.4.t':     'Entrega',
+      'process.4.d':     'Archivos en alta resolución, hechos para destacar y listos para publicar.',
+
       'grading.before':  'Antes',
       'grading.after':   'Después',
 
@@ -183,6 +195,18 @@ window.FITO = {
       'work.kicker':     'Videos',
       'work.title':      'Videos',
       'work.sub':        'A selection of my audiovisual work.',
+
+      'process.kicker':  'Process',
+      'process.title':   'From Raw File to Render.',
+      'process.sub':     'How we work together, step by step.',
+      'process.1.t':     'Content received',
+      'process.1.d':     'You share your footage via Google Drive or Dropbox.',
+      'process.2.t':     'Edit & Flow',
+      'process.2.d':     'I apply pacing, sound design, and motion graphics.',
+      'process.3.t':     'Revisions',
+      'process.3.d':     'You get 2 rounds of revisions via Frame.io.',
+      'process.4.t':     'Delivery',
+      'process.4.d':     'High-resolution files, built for impact and ready to publish.',
 
       'grading.before':  'Before',
       'grading.after':   'After',

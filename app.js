@@ -66,6 +66,22 @@
     ['Selected Editing Work', 'work.title'],
     [{ p: 'A showcase of visual styles and creative editing' }, 'work.sub'],
 
+    /* process — 'Process' also matches the nav/footer links, which is what we
+       want: they should read "Proceso" too. The template's sub-heading here is
+       a copy-paste of the work section's and says nothing about a process, so
+       it gets real copy instead. */
+    ['Process', 'process.kicker'],
+    ['From Raw File to Render.', 'process.title'],
+    [{ p: 'A showcase of visual styles, pacing, and creative editing' }, 'process.sub'],
+    ['Content received', 'process.1.t'],
+    [{ p: 'Drop your footage in our shared' }, 'process.1.d'],
+    ['Edit & Flow', 'process.2.t'],
+    [{ p: 'I apply pacing, sound design' }, 'process.2.d'],
+    ['Revisions', 'process.3.t'],
+    [{ p: 'You get 2 rounds of revisions' }, 'process.3.d'],
+    ['Delivery & Reuse', 'process.4.t'],
+    [{ p: 'High-resolution files built for impact' }, 'process.4.d'],
+
     /* extras (template's "Why Me") */
     ['Why Me', 'extras.kicker'],
     ['More than just "cutting" footage.', 'extras.title'],
@@ -180,9 +196,6 @@
     hideSection(/^Simple Pricing\.$/);
     hideSection(/^Numbers that speak volumes$/);
     hideSection(/^Creators Worked With$/);
-    /* The template's 4-step "process" is an invented workflow (Google Drive,
-       Frame.io, "2 rounds of revisions") that isn't on the live site. */
-    hideSection(/^From Raw File to Render\.$/);
     /* "Why Me" held the Extras copy, which is now the 5th row of the skills
        list — same text twice, and its photo tile was another stock-ish image. */
     hideSection(/^More than just "cutting" footage\.$/);
@@ -207,11 +220,6 @@
       hide(roleBadges[rb].closest('.framer-10n4a2-container') || roleBadges[rb]);
     }
 
-    /* Links to the now-removed Process section — they appear in both the nav
-       and the footer. Framer duplicates each label for its hover effect, so
-       the text reads "ProcessProcess"; match on the href instead. */
-    var procLinks = document.querySelectorAll('a[href$="#process"], a[href="#process"]');
-    for (var n = 0; n < procLinks.length; n++) hide(procLinks[n]);
     var nodes = document.querySelectorAll('p, span, div');
     for (var i = 0; i < nodes.length; i++) {
       var txt = (nodes[i].textContent || '').trim();
