@@ -426,6 +426,30 @@
   }
 
   /* ---------------------------------------------------------------------
+     Nav: "About" -> "FAQ".
+     #about-me was the "Why Me" section, which now duplicates the skills list
+     and is hidden — so the link scrolled to nothing. The FAQ is real content
+     with no nav entry, so it takes the slot. Framer gives the FAQ section no
+     id, hence one is added here.
+     --------------------------------------------------------------------- */
+  function initNavFaqLink() {
+    var title = document.querySelector('[data-i18n="faq.title"]');
+    var section = title && title.closest('section');
+    if (!section) return;
+    if (!section.id) section.id = 'faq';
+
+    var links = document.querySelectorAll('a[href$="#about-me"]');
+    for (var i = 0; i < links.length; i++) {
+      links[i].setAttribute('href', '#faq');
+      var labels = links[i].querySelectorAll('[data-i18n="nav.about"]');
+      for (var j = 0; j < labels.length; j++) labels[j].setAttribute('data-i18n', 'nav.faq');
+      if (links[i].getAttribute('data-i18n') === 'nav.about') {
+        links[i].setAttribute('data-i18n', 'nav.faq');
+      }
+    }
+  }
+
+  /* ---------------------------------------------------------------------
      Contact — real email / phone / location, plus rebuilt socials.
      --------------------------------------------------------------------- */
   function initContact() {
@@ -825,6 +849,7 @@
     initSkills();
     initPortfolio();
     initFAQ();
+    initNavFaqLink();
     initContact();
     initSocials();
     initLegacyLinks();
