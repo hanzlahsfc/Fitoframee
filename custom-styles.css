@@ -1,7 +1,7 @@
 /* Global background: red gradient fixed across the whole page */
 html {
   background:
-    radial-gradient(120% 140% at 50% 0%, rgba(255, 0, 0, 0.12) 0%, rgba(10, 10, 10, 0) 55%),
+    radial-gradient(120% 140% at 50% 0%, rgba(128, 0, 255, 0.12) 0%, rgba(10, 10, 10, 0) 55%),
     linear-gradient(180deg, #0d0d0d 0%, #060606 100%) !important;
   background-attachment: fixed !important;
 }
@@ -37,7 +37,7 @@ nav.framer-ujUI6 {
   position: fixed;
   width: 20px;
   height: 20px;
-  background: #ff0000;
+  background: #8000ff;
   border-radius: 50%;
   pointer-events: none;
   z-index: 99999;
@@ -48,7 +48,7 @@ nav.framer-ujUI6 {
 .cursor-dot.hovering {
   width: 24px;
   height: 24px;
-  background: #ff4444;
+  background: #9933ff;
 }
 
 /* ==========================================================================
@@ -95,7 +95,7 @@ nav.framer-ujUI6 {
 
 .framer-m18xux > div > *:hover {
   transform: translateY(-6px) !important;
-  box-shadow: 0 20px 40px rgba(255, 69, 69, 0.18) !important;
+  box-shadow: 0 20px 40px rgba(128, 0, 255, 0.18) !important;
 }
 
 /* Media (iframe/img/embed wrapper) fills width, keeps its own ratio, centered */
@@ -206,8 +206,8 @@ nav.framer-ujUI6 {
   transition: all 0.25s ease !important;
 }
 .framer-1q1vsss .framer-ogemz6:hover {
-  border-color: rgba(255, 69, 69, 0.5) !important;
-  background: rgba(255, 69, 69, 0.08) !important;
+  border-color: rgba(128, 0, 255, 0.5) !important;
+  background: rgba(128, 0, 255, 0.08) !important;
 }
 
 /* Follow Me On: label on one line, icons in a row */
@@ -301,7 +301,7 @@ footer .framer-ohx6u0-container {
   margin-left: 3px !important;
 }
 .framer-m18xux > div > .pf-card:hover .pf-play {
-  background: #ff0000 !important;
+  background: #8000ff !important;
   transform: translate(-50%, -50%) scale(1.08) !important;
 }
 .framer-m18xux > div > .pf-card:hover {
@@ -386,7 +386,7 @@ footer .framer-ohx6u0-container {
   color: #888888 !important;
 }
 .framer-103g85l [data-framer-name="Active"] .framer-text {
-  color: #ff2a2a !important;
+  color: #9933ff !important;
 }
 
 /* ==========================================================================
@@ -400,7 +400,7 @@ footer .framer-ohx6u0-container {
   border-radius: 24px;
   overflow: hidden;
   background:
-    radial-gradient(120% 90% at 30% 0%, rgba(255, 0, 0, 0.10), rgba(0, 0, 0, 0) 60%),
+    radial-gradient(120% 90% at 30% 0%, rgba(128, 0, 255, 0.10), rgba(0, 0, 0, 0) 60%),
     linear-gradient(180deg, rgba(20, 8, 8, 0.55), rgba(6, 6, 6, 0.55));
 }
 .retention-graph .rg-svg {
@@ -412,7 +412,7 @@ footer .framer-ohx6u0-container {
 }
 .retention-graph text { font-family: inherit; }
 .retention-graph .rg-kicker {
-  fill: #ff5a5a;
+  fill: #b366ff;
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 2.5px;
@@ -429,7 +429,7 @@ footer .framer-ohx6u0-container {
   font-weight: 500;
 }
 .retention-graph .rg-dot {
-  filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.9));
+  filter: drop-shadow(0 0 6px rgba(128, 0, 255, 0.9));
   transition: opacity 0.2s ease;
 }
 
@@ -477,9 +477,9 @@ section#pricing {
 /* Footer — add life (it looked dull): soft red glow + accent divider line */
 footer.framer-axgd5s {
   position: relative !important;
-  background:
-    radial-gradient(120% 140% at 50% 0%, rgba(255, 0, 0, 0.12) 0%, rgba(10, 10, 10, 0) 55%),
-    linear-gradient(180deg, #0d0d0d 0%, #060606 100%) !important;
+	background:
+		radial-gradient(120% 140% at 50% 0%, rgba(128, 0, 255, 0.12) 0%, rgba(10, 10, 10, 0) 55%),
+		linear-gradient(180deg, #0d0d0d 0%, #060606 100%) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
   overflow: hidden !important;
 }
@@ -492,7 +492,7 @@ footer.framer-axgd5s::before {
   width: 65%;
   max-width: 620px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.7), transparent) !important;
+  background: linear-gradient(90deg, transparent, rgba(128, 0, 255, 0.7), transparent) !important;
   filter: blur(0.3px);
 }
 footer.framer-axgd5s::after {
@@ -503,7 +503,7 @@ footer.framer-axgd5s::after {
   transform: translateX(-50%);
   width: 480px;
   height: 280px;
-  background: radial-gradient(closest-side, rgba(255, 0, 0, 0.18), rgba(255, 0, 0, 0) 70%) !important;
+  background: radial-gradient(closest-side, rgba(128, 0, 255, 0.18), rgba(128, 0, 255, 0) 70%) !important;
   pointer-events: none !important;
   z-index: 0;
 }
@@ -567,8 +567,8 @@ footer.framer-axgd5s::after {
     display: none !important;
   }
   .framer-1u96wp1 .framer-dm0qcw-container:hover p {
-    color: #ff0000 !important;
-    text-shadow: 0 0 12px rgba(255, 0, 0, 0.9), 0 0 30px rgba(255, 0, 0, 0.5) !important;
+    color: #8000ff !important;
+    text-shadow: 0 0 12px rgba(128, 0, 255, 0.9), 0 0 30px rgba(128, 0, 255, 0.5) !important;
   }
 }
 

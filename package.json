@@ -1,7 +1,7 @@
 {
-  "name": "muneeb-video-editor-portfolio",
+  "name": "fitoframe-portfolio",
   "version": "1.0.0",
-  "description": "Muneeb - Video Editor Portfolio Website",
+  "description": "Fitoframe - Video Agency Portfolio Website",
   "main": "index.html",
   "scripts": {
     "start": "npx serve ."

@@ -1,4 +1,4 @@
-# Muneeb Portfolio — Session Handoff
+# Fitoframe Portfolio — Session Handoff
 
 Quick log of what was changed, what's verified, what's still open. All edits are in
 `index.html` (custom `<script>` at the bottom + `<head>`) and `custom-styles.css`.

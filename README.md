@@ -1,6 +1,6 @@
-# Muneeb - Video Editor Portfolio
+# Fitoframe - Video Agency Portfolio
 
-A professional video editor portfolio website showcasing client work, testimonials, and editing services. Built from a Framer design export with custom interactivity.
+A professional video agency portfolio website showcasing client work, testimonials, and editing services. Built from a Framer design export with custom interactivity.
 
 ## Tech Stack
 
@@ -52,7 +52,7 @@ Search for these in the file to update.
 
 The site is hosted on **GitHub Pages**. Push to the `master` branch to auto-deploy.
 
-Live URL: `https://hanzlahsfc.github.io/Muneeb-Video-Editing-Portfolio-Website`
+Live URL: `https://hanzlahsfc.github.io/Fitoframe-Portfolio`
 
 ## License
 

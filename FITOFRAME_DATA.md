@@ -1,4 +1,4 @@
-# Muneeb - Video Editor Portfolio: Complete Site Data
+# Fitoframe - Video Agency Portfolio: Complete Site Data
 
 > Copy this file into a new session to restore context.
 
@@ -6,19 +6,19 @@
 
 ## Project Info
 
-- **Live URL:** https://hanzlahsfc.github.io/Muneeb-Video-Editing-Portfolio-Website
+- **Live URL:** https://hanzlahsfc.github.io/Fitoframe-Portfolio
 - **Tech:** Single Framer-generated `index.html` + custom inline JS/CSS
-- **Site title:** Muneeb - Video Editor
+- **Site title:** Fitoframe - Video Agency
 - **Description:** Focused on crafting polished video edits that blend storytelling, pacing, and cinematic polish to help brands connect better with their audiences.
 - **Published:** Apr 17, 2026, 4:34 AM UTC
-- **Repo location:** `C:\Users\Hanzlahsfc\Desktop\Muneeb-Video-Editing-Portfolio-Website`
-- **Key files:** `index.html`, `pfp-muneeb.png`, `STRUCTURE.md`, `README.md`
+- **Repo location:** `C:\Users\Hanzlahsfc\Desktop\Fitoframe-Portfolio`
+- **Key files:** `index.html`, `pfp-fitoframe.png`, `STRUCTURE.md`, `README.md`
 
 ---
 
 ## Site Sections (top to bottom)
 
-1. **Nav** — Logo "Muneeb", links (Work, Services, Process, About), "Book a Call" CTA
+1. **Nav** — Logo "Fitoframe", links (Work, Services, Process, About), "Book a Call" CTA
 2. **Hero** — Needs fixing to match creatorcut.framer.website style. Currently has:
    - Heading, subtitle
    - Two CTAs: "View Work" (`#work`) and "Get In Touch" (`#contact-us`)
@@ -45,7 +45,7 @@
 - Subtitle
 - Two CTA buttons: "View Work" (`#work`), "Get In Touch" (`#contact-us`)
 - Counter area: "Creators Worked With" + scrolling logo strip + stats numbers
-- Profile image: `pfp-muneeb.png` (local file — must keep)
+- Profile image: `pfp-fitoframe.png` (local file)
 
 **What the original hero had:**
 - "Editing That Grows Channels." heading
@@ -56,7 +56,7 @@
 
 ## Profile Image
 
-- **File:** `pfp-muneeb.png`
+- **File:** `pfp-fitoframe.png`
 - **Location:** project root
 - **Usage:** Must be referenced in hero section (added in commit 7f4c967)
 
@@ -149,12 +149,12 @@ f206917 Fix portrait CSS - override inline height with auto so aspect-ratio work
 26d5a1a Fix short-form cards to portrait 9:16, adjust WhatsApp position lower
 747e669 Fix slideshow pagination, replace short-form images with TikTok-themed content, move WhatsApp button up
 b388a34 Fix: WhatsApp icon in Follow Me On, FAQ overflow, replace cards with static images, add videos to Psychology section
-7f4c967 Replace Framer CDN videos with client content and add Muneeb pfp
+7f4c967 Replace Framer CDN videos with client content
 4b81477 Fix WhatsApp link, overhaul FAQ accordion with CSS toggle, improve slideshow
 64f6ae7 Add package.json for Hostinger
 baf6e70 Add STRUCTURE.md with full HTML breakdown for easy editing
 9ff1da3 Add professional README.md with editing guide
-1203a11 Initial commit - Muneeb Video Editor portfolio site
+1203a11 Initial commit - Fitoframe portfolio site
 ```
 
 **All commits are on `main` branch. No other branches exist.**
@@ -167,7 +167,7 @@ baf6e70 Add STRUCTURE.md with full HTML breakdown for easy editing
    - "Editing That Grows Channels." heading
    - Two CTAs ("View Work", "See Pricing")
    - Counter ("+95 Worked with 100+ Creators")
-   - Keep `pfp-muneeb.png` image
+    - Keep `pfp-fitoframe.png` image
 2. **Fix video grid layout** — match creatorcut.framer.website reference
 3. **Old hero had:** "Editing That Grows Channels." heading, "View Work" + "See Pricing" buttons, "+95 Worked with 100+ Creators" counter
 
