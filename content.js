@@ -10,20 +10,18 @@
 
 window.FITO = {
 
-  /* The 8 Shorts embedded on fitoframe.com, in the order they appear there.
-     Taken from the Elementor widget config (`youtube_url`), NOT the "Mira aquí"
-     button hrefs — those point at a different, older set of videos.
-     Titles are the real YouTube titles (via oEmbed); channel is the same for all. */
+  /* The Shorts shown in the Videos grid, in order.
+     Titles are the real YouTube titles (via oEmbed); the channel is the same
+     for all, so it's stored once rather than repeated per video.
+     To add one: drop in { id, title } — the id is the part of the URL after
+     /shorts/ , without the ?feature=share. */
   channel: 'Rodolfo Delgado',
   videos: [
-    { id: '69YvCKQcFxY', title: 'KFC x AngelRivero' },
-    { id: 'BNFYlDpXblI', title: 'Gatorade - Entreno' },
-    { id: 'uGbpxcS2G40', title: '@orianabrowsstudio' },
+    { id: 'mjvyK836Ob4', title: 'Simple x Digitel' },
+    { id: 'OLFriuRU4Yg', title: 'Sportbiz' },
     { id: 'dmxDzJAww1U', title: 'Fina' },
-    { id: 'lCeBDrFM6t4', title: 'JAC - Campaña' },
-    { id: 'GN2dZub22DU', title: 'Cinepic' },
-    { id: 'HcHgHbVTgrw', title: 'SPA - Silueta Beauty Spa' },
-    { id: '1VqphvdhG0k', title: 'Personal Brand' }
+    { id: 'Spmo2Esb9-w', title: 'orianabrowsstudio' },
+    { id: '69YvCKQcFxY', title: 'KFC x AngelRivero' }
   ],
 
   /* Skills, rendered as the animated icon/timeline list (mirrors the live
