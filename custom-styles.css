@@ -1171,3 +1171,27 @@ footer.framer-axgd5s::after {
   .fito-svc,
   .fito-grade { position: static; }
 }
+
+/* ==========================================================================
+   FEATURED LANDSCAPE VIDEO — full-row 16:9 card below the Shorts grid
+   The base rule forces every grid child to a 9:16 short frame; override that
+   for the landscape card and make it span the full row.
+   ========================================================================== */
+.framer-m18xux > div > .pf-featured {
+  grid-column: 1 / -1 !important;
+  aspect-ratio: 16 / 9 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.framer-m18xux > div > .pf-featured .pf-thumb,
+.framer-m18xux > div > .pf-featured iframe {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+.framer-m18xux > div > .pf-featured iframe {
+  position: absolute !important;
+  inset: 0 !important;
+  border: 0 !important;
+  border-radius: inherit !important;
+}

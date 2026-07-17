@@ -296,6 +296,26 @@
           '<button class="pf-play" type="button" aria-label="Play: ' + esc(v.title) + '">' + ytPlay + '</button>' +
         '</div>';
     }
+
+    /* Featured landscape piece: a full-row 16:9 card below the shorts.
+       data-type="landscape" opts it out of the 9:16 short frame. */
+    if (FITO.featured) {
+      var f = FITO.featured;
+      html +=
+        '<div class="pf-card pf-featured" data-type="landscape" data-id="' + f.id + '">' +
+          '<img class="pf-thumb" src="https://i.ytimg.com/vi/' + f.id + '/maxresdefault.jpg" alt="' + esc(f.title) + '" loading="lazy" ' +
+               'onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/' + f.id + '/hqdefault.jpg\'">' +
+          '<div class="pf-head">' +
+            '<img class="pf-avatar" src="./assets/fito-2.jpg" alt="">' +
+            '<span class="pf-meta">' +
+              '<span class="pf-title">' + esc(f.title) + '</span>' +
+              '<span class="pf-channel">' + esc(FITO.channel) + '</span>' +
+            '</span>' +
+          '</div>' +
+          '<button class="pf-play" type="button" aria-label="Play: ' + esc(f.title) + '">' + ytPlay + '</button>' +
+        '</div>';
+    }
+
     wrap.innerHTML = html;
 
     var cards = wrap.querySelectorAll('.pf-card');
@@ -303,9 +323,11 @@
       cards[c].addEventListener('click', function () {
         if (this.querySelector('iframe')) return;
         var id = this.getAttribute('data-id');
+        var landscape = this.getAttribute('data-type') === 'landscape';
         this.innerHTML =
           '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&playsinline=1" ' +
-                  'allow="autoplay; encrypted-media" allowfullscreen title="YouTube Short"></iframe>';
+                  'allow="autoplay; encrypted-media" allowfullscreen title="' +
+                  (landscape ? 'YouTube video' : 'YouTube Short') + '"></iframe>';
       });
     }
 

@@ -25,6 +25,11 @@ window.FITO = {
     { id: '69YvCKQcFxY', title: 'KFC x AngelRivero' }
   ],
 
+  /* A featured LANDSCAPE (16:9) piece, shown full-width below the vertical
+     Shorts grid. Kept separate from `videos` because those are all 9:16 and
+     this would be cropped in that grid. Set to null to hide it. */
+  featured: { id: '2xFi-WzkJMc', title: 'Abuela' },
+
   /* Skills, rendered as the animated icon/timeline list (mirrors the live
      site's layout). `icon` maps to an inline SVG in app.js. */
   skills: [
