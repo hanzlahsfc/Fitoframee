@@ -1197,6 +1197,29 @@ footer.framer-axgd5s::after {
 }
 
 /* ==========================================================================
+   SECTION KICKER PILLS — hide the small repeated badge above each heading
+   (e.g. "Videos" pill above the "Videos" heading, "Skills" pill, etc.)
+   They all share the .framer-UBLMm component class (rounded pill with the
+   preset-sudjg0 text inside).
+   ========================================================================== */
+.framer-UBLMm.framer-11cxewz {
+  display: none !important;
+}
+
+/* Hide the subtitle line under the Skills heading ("What I work with") */
+.framer-5uil9y {
+  display: none !important;
+}
+
+/* Section headings (h2) — match "Video Editor" hero style: Trueno Ultra Black */
+.framer-styles-preset-qqeaut,
+[data-styles-preset="kScghea8I"] {
+  font-family: "Trueno", "Inter", sans-serif !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.005em !important;
+}
+
+/* ==========================================================================
    TYPOGRAPHY — Trueno (self-hosted Gotham-alike)
    The client asked for a Gotham system. Gotham is paid; the supplied pack was
    "gotham-similar-fonts" and Trueno is the closest match — it has the exact

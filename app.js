@@ -441,8 +441,8 @@
          that actually belong next to his craft. */
       '<div class="fito-collage" aria-hidden="true">' +
         '<span class="fito-collage-block"></span>' +
-        '<img class="fito-collage-a" src="./assets/fito-3.jpg" alt="" loading="lazy">' +
-        '<img class="fito-collage-b" src="./assets/fito-4.jpg" alt="" loading="lazy">' +
+        '<img class="fito-collage-a" src="./assets/fito-skills-left.jpg" alt="" loading="lazy">' +
+        '<img class="fito-collage-b" src="./assets/fito-skills.png" alt="" loading="lazy">' +
       '</div>' +
     '</div>';
 
@@ -741,7 +741,7 @@
     for (var i = 0; i < imgs.length; i++) {
       var src = imgs[i].getAttribute('src') || '';
       if (/muneeb\.jpg|profile\.jpg|pfp-fitoframe\.png|graded\.jpeg$/i.test(src) && !/ungraded/i.test(src)) {
-        if (/muneeb\.jpg|profile\.jpg|pfp-fitoframe\.png/i.test(src)) setImg(imgs[i], './assets/fito-2.jpg');
+        if (/muneeb\.jpg|profile\.jpg|pfp-fitoframe\.png/i.test(src)) setImg(imgs[i], './assets/fito-pfp.jpg');
       }
     }
 
