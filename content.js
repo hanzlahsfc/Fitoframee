@@ -101,7 +101,7 @@ window.FITO = {
       'about.kicker':    'Sobre mí',
       'about.title':     'Un poco de mí',
       'about.bio':       'Me puedes llamar Fito, nací en Caracas-Venezuela, en el 94, tengo más de 4 años dedicados a la parte audiovisual, trabajando de manera individual y siendo parte de distintos equipos o proyectos creativos.',
-      'about.brands':    'He tenido la oportunidad de colaborar con marcas como: Gatorade, KFC, Cinepic, Sedal, Central Madeirense, Fina Partner, entre otros.',
+      'about.brands':    'He tenido la oportunidad de colaborar con marcas como: Gatorade, KFC, Cinepic, Jac, Fina Partner, entre otros.',
 
       'skills.kicker':   'Skills',
       'skills.title':    'Con lo que trabajo',
@@ -155,7 +155,7 @@ window.FITO = {
          his skills list (Color / Vfx / Sonido / DaVinci) and his actual client
          work. Nothing camera-side — that service is retired. */
       'svc.1.t':         'Edición para marcas',
-      'svc.1.d':         'Contenido vertical para marcas: hooks, ritmo, subtítulos y cortes pensados para retener. Trabajo hecho para Gatorade, KFC, Cinepic, Fina, Central Madeirense y más.',
+      'svc.1.d':         'Contenido vertical para marcas: hooks, ritmo, subtítulos y cortes pensados para retener. Trabajo hecho para Gatorade, KFC, Cinepic, Jac, Fina y más.',
       'svc.2.t':         'Vfx y animaciones',
       'svc.2.d':         'Vfx y animaciones que refuerzan la narrativa: motion graphics, títulos y composición, todo dentro de DaVinci Studio.',
       'svc.3.t':         'Diseño de sonido',
@@ -208,7 +208,7 @@ window.FITO = {
       'about.kicker':    'About',
       'about.title':     'A little about me',
       'about.bio':       'You can call me Fito. I was born in Caracas, Venezuela in ‘94, and I have over 4 years dedicated to audiovisual work — both on my own and as part of different teams and creative projects.',
-      'about.brands':    'I’ve had the opportunity to collaborate with brands such as: Gatorade, KFC, Cinepic, Sedal, Central Madeirense, Fina Partner, among others.',
+      'about.brands':    'I’ve had the opportunity to collaborate with brands such as: Gatorade, KFC, Cinepic, Jac, Fina Partner, among others.',
 
       'skills.kicker':   'Skills',
       'skills.title':    'What I work with',
@@ -261,7 +261,7 @@ window.FITO = {
       /* See the Spanish block: every claim traces back to his real skills list
          and real client work. Nothing camera-side. */
       'svc.1.t':         'Brand Content Editing',
-      'svc.1.d':         'Vertical content for brands: hooks, pacing, captions and cuts built to hold attention. Work delivered for Gatorade, KFC, Cinepic, Fina, Central Madeirense and more.',
+      'svc.1.d':         'Vertical content for brands: hooks, pacing, captions and cuts built to hold attention. Work delivered for Gatorade, KFC, Cinepic, Jac, Fina and more.',
       'svc.2.t':         'VFX & Animation',
       'svc.2.d':         'VFX and animation that support the story: motion graphics, titles and compositing, all inside DaVinci Studio.',
       'svc.3.t':         'Sound Design',

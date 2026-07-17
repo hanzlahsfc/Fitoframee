@@ -1195,3 +1195,46 @@ footer.framer-axgd5s::after {
   border: 0 !important;
   border-radius: inherit !important;
 }
+
+/* ==========================================================================
+   TYPOGRAPHY — Trueno (self-hosted Gotham-alike)
+   The client asked for a Gotham system. Gotham is paid; the supplied pack was
+   "gotham-similar-fonts" and Trueno is the closest match — it has the exact
+   weights named: Ultra Black (Gotham Ultra) and Regular (Gotham Book).
+   Weight map:  Regular 400 (Book) · SemiBold 600 · Bold 700 · Black 800 ·
+                UltraBlack 900.
+   ========================================================================== */
+@font-face { font-family: "Trueno"; src: url("./assets/fonts/TruenoRg.otf") format("opentype");     font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Trueno"; src: url("./assets/fonts/TruenoSBd.otf") format("opentype");    font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Trueno"; src: url("./assets/fonts/TruenoBd.otf") format("opentype");     font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Trueno"; src: url("./assets/fonts/TruenoBlk.otf") format("opentype");    font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Trueno"; src: url("./assets/fonts/TruenoUltBlk.otf") format("opentype"); font-weight: 900; font-style: normal; font-display: swap; }
+
+/* Whole site → Trueno. Family only (each element keeps its own weight), so the
+   existing hierarchy survives; normal body text lands on Trueno Regular (Book). */
+body,
+.framer-gvib3,
+.framer-gvib3 *,
+.fito-skills-host *,
+.fito-lang,
+.fito-lang * {
+  font-family: "Trueno", "Inter", sans-serif !important;
+}
+
+/* Name "Rodolfo Delgado" — asked for Gotham Narrow. Trueno has no narrow cut,
+   so this is Bold with tightened tracking as the closest same-family stand-in.
+   Say the word and I'll load a genuinely condensed family for it instead. */
+[data-i18n="hero.name"],
+[data-i18n="hero.name"] * {
+  font-family: "Trueno", "Inter", sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* Role "Editor de video" — Gotham Ultra/Black → Trueno Ultra Black (900). */
+[data-i18n="hero.role"],
+[data-i18n="hero.role"] * {
+  font-family: "Trueno", "Inter", sans-serif !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.01em !important;
+}
