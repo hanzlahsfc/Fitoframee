@@ -401,7 +401,9 @@
     for (var v = 0; v < FITO.services.length; v++) {
       var sv = FITO.services[v];
       html +=
-        '<div class="fito-svc">' +
+        /* --i drives the sticky stack offset so each card pins just below the
+           previous one instead of fully covering it. */
+        '<div class="fito-svc" style="--i:' + v + '">' +
           '<div class="fito-svc-text">' +
             '<h3 class="fito-grade-title" data-i18n="' + sv.key + '.t">' + t(sv.key + '.t') + '</h3>' +
             '<p class="fito-grade-desc" data-i18n="' + sv.key + '.d">' + t(sv.key + '.d') + '</p>' +
@@ -419,7 +421,7 @@
        legible as the same frame treated two ways.
        assets/grade-sample.jpg is an Unsplash placeholder; swap it for one of
        Fito's own frames and the effect still works. */
-    '<div class="fito-grade">' +
+    '<div class="fito-grade" style="--i:' + FITO.services.length + '">' +
       '<div class="fito-grade-text">' +
         '<h3 class="fito-grade-title" data-i18n="grading.title">' + t('grading.title') + '</h3>' +
         '<p class="fito-grade-desc" data-i18n="grading.desc">' + t('grading.desc') + '</p>' +

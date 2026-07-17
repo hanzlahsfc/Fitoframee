@@ -1127,3 +1127,47 @@ footer.framer-axgd5s::after {
   .fito-svc-text { order: 2; }
   .fito-svc-media { order: 1; }
 }
+
+/* ==========================================================================
+   SERVICE CARDS — sticky stack
+   Each card pins as it reaches the top and the next one slides over it,
+   offset by --i so the stacked edges stay visible. Needs an opaque card
+   background, otherwise the card underneath shows through and the stack
+   just looks like a rendering bug.
+   ========================================================================== */
+.fito-svc,
+.fito-grade {
+  position: sticky;
+  top: calc(96px + var(--i, 0) * 16px);
+  background: rgb(17, 16, 20) !important;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.55);
+}
+
+/* Sticky needs no *scrolling* ancestor. The Framer wrappers use `overflow:
+   clip`, which does not create a scroll container, so sticky already works —
+   only the immediate host needs unclipping.
+   Do NOT blanket this with a `*` selector: it strips overflow:hidden off the
+   grading slider and the card media, and they burst out of their cards. */
+.fito-skills-host,
+.framer-p2v9dn {
+  overflow: visible !important;
+}
+
+/* Scroll distance between pins — without this they all pin at once. */
+.fito-svc { margin-top: 90px; }
+.fito-svc:first-of-type { margin-top: 72px; }
+.fito-grade { margin-top: 90px; margin-bottom: 40px; }
+
+@media (max-width: 900px) {
+  .fito-svc,
+  .fito-grade {
+    position: static;
+    box-shadow: none;
+    margin-top: 26px;
+  }
+  .fito-svc:first-of-type { margin-top: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fito-svc,
+  .fito-grade { position: static; }
+}
