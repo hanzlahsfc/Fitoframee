@@ -35,6 +35,16 @@ window.FITO = {
     { icon: 'extras',   key: 'skill.5' }
   ],
 
+  /* Service cards under the skills timeline. Rendered alternating left/right;
+     the Color Grading card (with the before/after wipe) is appended after these.
+     Images are self-hosted Unsplash placeholders — swap the files in assets/
+     for Fito's own frames and nothing else needs to change. */
+  services: [
+    { key: 'svc.1', img: 'svc-editing.jpg' },
+    { key: 'svc.2', img: 'svc-vfx.jpg' },
+    { key: 'svc.3', img: 'svc-sound.jpg' }
+  ],
+
   /* Contact details — identical in both languages. */
   contact: {
     email: 'xrodolfo94@gmail.com',
@@ -77,7 +87,8 @@ window.FITO = {
       'nav.contact':     'Contáctame',
 
       'hero.name':       'Rodolfo Delgado',
-      'hero.role':       'Editor de video / Videógrafo',
+      /* Editing-only: the videography side is retired (camera out of action). */
+      'hero.role':       'Editor de video',
       'hero.bio':        'Me puedes llamar Fito, nací en Caracas-Venezuela, en el 94, tengo más de 4 años dedicados a la parte audiovisual, trabajando de manera individual y siendo parte de distintos equipos o proyectos creativos.',
       'hero.cta1':       'Ver videos',
       'hero.cta2':       'Contáctame',
@@ -135,6 +146,16 @@ window.FITO = {
       'grading.title':   'Color Grading',
       'grading.desc':    'Corrección de color y color grading cinematográfico para darle a tus videos un estilo visual pulido y consistente. Balanceo exposición, tonos de piel y contraste, creando un look propio que refuerza tu identidad.',
 
+      /* Service cards. Every claim here traces back to something real:
+         his skills list (Color / Vfx / Sonido / DaVinci) and his actual client
+         work. Nothing camera-side — that service is retired. */
+      'svc.1.t':         'Edición para marcas',
+      'svc.1.d':         'Contenido vertical para marcas: hooks, ritmo, subtítulos y cortes pensados para retener. Trabajo hecho para Gatorade, KFC, Cinepic, Fina, Central Madeirense y más.',
+      'svc.2.t':         'Vfx y animaciones',
+      'svc.2.d':         'Vfx y animaciones que refuerzan la narrativa: motion graphics, títulos y composición, todo dentro de DaVinci Studio.',
+      'svc.3.t':         'Diseño de sonido',
+      'svc.3.d':         'Diseño de sonido, mejora de voces y mezcla para que cada pieza se escuche tan bien como se ve.',
+
       'faq.kicker':      'Preguntas',
       'faq.title':       'Preguntas Comunes',
       'faq.sub':         'Lo que más me suelen preguntar.',
@@ -144,8 +165,9 @@ window.FITO = {
       'faq.a2':          'Actualmente estoy en Caracas-Venezuela.',
       'faq.q3':          '¿Qué internet tengo?',
       'faq.a3':          'Tengo Fibra de 150 Mbps.',
-      'faq.q4':          '¿Qué equipo poseo para hacer producciones?',
-      'faq.a4':          'Tengo una cámara Sony Fx30 y una Sony Zve-10, estabilizador Zhiyun Webill 3s, tres kits de luces Godox SL100 Bi con sus difusores, entre otros accesorios.',
+      /* faq.q4/a4 (the camera + lighting gear question) is retired with the
+         videography side — the kit is out of action, so the answer is no
+         longer true. app.js hides the 4th accordion row. */
 
       'contact.kicker':  'Contacto',
       'contact.title':   'Contáctame',
@@ -156,7 +178,7 @@ window.FITO = {
       'contact.locval':  'Caracas, Venezuela.',
       'contact.social':  'Mis redes sociales :',
 
-      'footer.tagline':  'Editor de video y videógrafo. Caracas, Venezuela.',
+      'footer.tagline':  'Editor de video. Caracas, Venezuela.',
       'footer.privacy':  'Privacy & Policy',
       'footer.terms':    'Terms Condition',
       'footer.designed': 'Designed by',
@@ -172,7 +194,8 @@ window.FITO = {
       'nav.contact':     'Contact me',
 
       'hero.name':       'Rodolfo Delgado',
-      'hero.role':       'Video Editor / Videographer',
+      /* Editing-only: the videography side is retired (camera out of action). */
+      'hero.role':       'Video Editor',
       'hero.bio':        'You can call me Fito. I was born in Caracas, Venezuela in ‘94, and I have over 4 years dedicated to audiovisual work — both on my own and as part of different teams and creative projects.',
       'hero.cta1':       'View videos',
       'hero.cta2':       'Contact me',
@@ -230,6 +253,15 @@ window.FITO = {
       'grading.title':   'Color Grading',
       'grading.desc':    'Professional color correction and cinematic color grading to give your videos a polished, consistent visual style. I balance exposure, skin tones, and contrast while crafting a signature look that strengthens your brand identity.',
 
+      /* See the Spanish block: every claim traces back to his real skills list
+         and real client work. Nothing camera-side. */
+      'svc.1.t':         'Brand Content Editing',
+      'svc.1.d':         'Vertical content for brands: hooks, pacing, captions and cuts built to hold attention. Work delivered for Gatorade, KFC, Cinepic, Fina, Central Madeirense and more.',
+      'svc.2.t':         'VFX & Animation',
+      'svc.2.d':         'VFX and animation that support the story: motion graphics, titles and compositing, all inside DaVinci Studio.',
+      'svc.3.t':         'Sound Design',
+      'svc.3.d':         'Sound design, voice enhancement and mixing, so every piece sounds as good as it looks.',
+
       'faq.kicker':      'FAQ',
       'faq.title':       'Common Questions',
       'faq.sub':         'The things I get asked most.',
@@ -239,8 +271,8 @@ window.FITO = {
       'faq.a2':          'I’m currently in Caracas, Venezuela.',
       'faq.q3':          'What internet do I have?',
       'faq.a3':          'I have 150 Mbps fibre.',
-      'faq.q4':          'What gear do I own for productions?',
-      'faq.a4':          'I have a Sony FX30 and a Sony ZV-E10 camera, a Zhiyun Weebill 3S gimbal, three Godox SL100 Bi light kits with diffusers, and other accessories.',
+      /* faq.q4/a4 (the camera + lighting gear question) is retired with the
+         videography side — see the Spanish block. */
 
       'contact.kicker':  'Contact',
       'contact.title':   'Contact me',
@@ -251,7 +283,7 @@ window.FITO = {
       'contact.locval':  'Caracas, Venezuela.',
       'contact.social':  'My social media:',
 
-      'footer.tagline':  'Video editor and videographer. Caracas, Venezuela.',
+      'footer.tagline':  'Video editor. Caracas, Venezuela.',
       'footer.privacy':  'Privacy & Policy',
       'footer.terms':    'Terms Condition',
       'footer.designed': 'Designed by',

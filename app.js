@@ -395,7 +395,24 @@
         '<img class="fito-collage-a" src="./assets/fito-3.jpg" alt="" loading="lazy">' +
         '<img class="fito-collage-b" src="./assets/fito-4.jpg" alt="" loading="lazy">' +
       '</div>' +
-    '</div>' +
+    '</div>';
+
+    /* Service cards, alternating text/image. */
+    for (var v = 0; v < FITO.services.length; v++) {
+      var sv = FITO.services[v];
+      html +=
+        '<div class="fito-svc">' +
+          '<div class="fito-svc-text">' +
+            '<h3 class="fito-grade-title" data-i18n="' + sv.key + '.t">' + t(sv.key + '.t') + '</h3>' +
+            '<p class="fito-grade-desc" data-i18n="' + sv.key + '.d">' + t(sv.key + '.d') + '</p>' +
+          '</div>' +
+          '<div class="fito-svc-media">' +
+            '<img src="./assets/' + sv.img + '" alt="" loading="lazy">' +
+          '</div>' +
+        '</div>';
+    }
+
+    html +=
     /* Colour-grading before/after. One source image shown twice: the left half
        flat/ungraded, the right half with a purple cinematic grade applied in
        CSS. Using two unrelated photos would demo nothing — grading is only
@@ -457,6 +474,12 @@
     var items = document.querySelectorAll('[data-framer-name="close"], [data-framer-name="open"]');
     var n = 0;
 
+    /* Derive how many questions exist rather than hardcoding: retiring one
+       (e.g. the camera-gear question) should drop its row, not leave a blank
+       accordion behind. */
+    var total = 0;
+    while (FITO.t.es['faq.q' + (total + 1)]) total++;
+
     for (var i = 0; i < items.length; i++) {
       var item = items[i];
 
@@ -470,7 +493,7 @@
       if (!qEl) { hide(item); continue; }
 
       n++;
-      if (n > 4) { hide(item); continue; }
+      if (n > total) { hide(item); continue; }
 
       qEl.setAttribute('data-i18n', 'faq.q' + n);
       qEl.textContent = t('faq.q' + n);
