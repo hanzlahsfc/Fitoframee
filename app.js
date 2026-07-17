@@ -235,6 +235,33 @@
   }
 
   /* ---------------------------------------------------------------------
+     Hero: make the ROLE the big title and drop the name smaller beneath it.
+     Client's call — he wanted "Editor de video" as the headline (and it was
+     invisible anyway, since the old role pill got hidden). The big <h1> that
+     held the name is repurposed to the role key; a smaller name line is
+     injected right under it. Must run AFTER initStripTemplate, which hides
+     everything tagged hero.role — we retag the h1 here so it survives.
+     --------------------------------------------------------------------- */
+  function initHeroLayout() {
+    var titles = document.querySelectorAll('h1[data-i18n="hero.name"], [data-i18n="hero.name"]');
+    for (var i = 0; i < titles.length; i++) {
+      var el = titles[i];
+      if (el.tagName !== 'H1') continue;              // only the big heading(s)
+      if (el.parentNode.querySelector('.fito-hero-name')) continue;
+
+      el.setAttribute('data-i18n', 'hero.role');
+      el.textContent = t('hero.role');
+      el.classList.add('fito-hero-title');
+
+      var name = document.createElement('div');
+      name.className = 'fito-hero-name';
+      name.setAttribute('data-i18n', 'hero.name');
+      name.textContent = t('hero.name');
+      el.parentNode.insertBefore(name, el.nextSibling);
+    }
+  }
+
+  /* ---------------------------------------------------------------------
      The live site's "brands I've worked with" line has no equivalent slot in
      the template, so add it directly beneath the hero bio. There are two bio
      nodes (desktop + mobile breakpoint variants); each gets its own copy.
@@ -1082,6 +1109,7 @@
 
     indexContent();
     initStripTemplate();
+    initHeroLayout();
     initBrandsLine();
     initSkills();
     initPortfolio();
