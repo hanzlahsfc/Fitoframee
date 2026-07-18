@@ -109,9 +109,9 @@ window.FITO = {
       'skill.1.t':       'Software',
       'skill.1.d':       'Trabajo con Davinci Studio (versión paga).',
       'skill.2.t':       'Color',
-      'skill.2.d':       'Color grading y look creativo.',
+      'skill.2.d':       'Color correction y color grading.',
       'skill.3.t':       'Efectos',
-      'skill.3.d':       'Vfx y animaciones.',
+      'skill.3.d':       'Vfx y titulos animados.',
       'skill.4.t':       'Sonido',
       'skill.4.d':       'Diseño de sonido, mejora de voces, entre otras cosas.',
       'skill.5.t':       'Extras',
@@ -148,18 +148,18 @@ window.FITO = {
 
       'grading.before':  'Antes',
       'grading.after':   'Después',
-      'grading.title':   'Color Grading',
-      'grading.desc':    'Corrección de color y color grading cinematográfico para darle a tus videos un estilo visual pulido y consistente. Balanceo exposición, tonos de piel y contraste, creando un look propio que refuerza tu identidad.',
+      'grading.title':   'Color',
+      'grading.desc':    'El color es una de las partes que más disfruto del proceso. Aplico corrección de color y luego color grading, trabajando con material grabado en formato logarítmico de cualquier cámara. Buscando el atractivo visual mediante a la riqueza del color, la consistencia entre tomas, cuidando los detalles.',
 
       /* Service cards. Every claim here traces back to something real:
          his skills list (Color / Vfx / Sonido / DaVinci) and his actual client
          work. Nothing camera-side — that service is retired. */
-      'svc.1.t':         'Edición para marcas',
-      'svc.1.d':         'Contenido vertical para marcas: hooks, ritmo, subtítulos y cortes pensados para retener. Trabajo hecho para Gatorade, KFC, Cinepic, Jac, Fina y más.',
-      'svc.2.t':         'Vfx y animaciones',
-      'svc.2.d':         'Vfx y animaciones que refuerzan la narrativa: motion graphics, títulos y composición, todo dentro de DaVinci Studio.',
+      'svc.1.t':         'VFX y animaciones',
+      'svc.1.d':         'Integro efectos visuales según lo que cada video realmente necesita. También le doy mucho peso al uso de títulos y subtítulos animados, que ayudan a mantener el patrón de interrupción y a elevar la retención.',
+      'svc.2.t':         'Edición con IA',
+      'svc.2.d':         'Incorporo inteligencia artificial como una herramienta más dentro del flujo de edición. La uso para asistir transiciones, resolver vacíos visuales o crear elementos de VFX con plataformas como Higgsfield, Kling y Seedance, siempre buscando que el resultado se integre de forma natural con el resto del video.',
       'svc.3.t':         'Diseño de sonido',
-      'svc.3.d':         'Diseño de sonido, mejora de voces y mezcla para que cada pieza se escuche tan bien como se ve.',
+      'svc.3.d':         'El sonido es tan importante como la imagen. Trabajo la limpieza de voces y construyo una estructura completa de audio: ambiente, música y efectos que acompañan y refuerzan cada edición.',
 
       'faq.kicker':      'Preguntas',
       'faq.title':       'Preguntas Comunes',
@@ -216,9 +216,9 @@ window.FITO = {
       'skill.1.t':       'Software',
       'skill.1.d':       'I work with DaVinci Studio (paid version).',
       'skill.2.t':       'Color',
-      'skill.2.d':       'Color grading and creative looks.',
+      'skill.2.d':       'Color correction and color grading.',
       'skill.3.t':       'Effects',
-      'skill.3.d':       'VFX and animation.',
+      'skill.3.d':       'VFX and animated titles.',
       'skill.4.t':       'Sound',
       'skill.4.d':       'Sound design, voice enhancement, and more.',
       'skill.5.t':       'Extras',
@@ -255,17 +255,17 @@ window.FITO = {
 
       'grading.before':  'Before',
       'grading.after':   'After',
-      'grading.title':   'Color Grading',
-      'grading.desc':    'Professional color correction and cinematic color grading to give your videos a polished, consistent visual style. I balance exposure, skin tones, and contrast while crafting a signature look that strengthens your brand identity.',
+      'grading.title':   'Color',
+      'grading.desc':    'Color is one of the parts I enjoy most in the process. I apply color correction and then color grading, working with footage shot in log format from any camera — pursuing visual appeal through rich color, consistency between shots, and attention to detail.',
 
       /* See the Spanish block: every claim traces back to his real skills list
          and real client work. Nothing camera-side. */
-      'svc.1.t':         'Brand Content Editing',
-      'svc.1.d':         'Vertical content for brands: hooks, pacing, captions and cuts built to hold attention. Work delivered for Gatorade, KFC, Cinepic, Jac, Fina and more.',
-      'svc.2.t':         'VFX & Animation',
-      'svc.2.d':         'VFX and animation that support the story: motion graphics, titles and compositing, all inside DaVinci Studio.',
+      'svc.1.t':         'VFX & Animation',
+      'svc.1.d':         'I integrate visual effects based on what each video truly needs. I also put a lot of emphasis on animated titles and subtitles, which help maintain pattern interruption and boost retention.',
+      'svc.2.t':         'AI-Powered Editing',
+      'svc.2.d':         'I use AI as another tool in the editing workflow — assisting with transitions, filling visual gaps, and creating VFX elements through platforms like Higgsfield, Kling and Seedance, always making sure the result blends naturally with the rest of the video.',
       'svc.3.t':         'Sound Design',
-      'svc.3.d':         'Sound design, voice enhancement and mixing, so every piece sounds as good as it looks.',
+      'svc.3.d':         'Sound is just as important as the image. I work on voice cleanup and build a complete audio structure: ambience, music and effects that support and elevate every edit.',
 
       'faq.kicker':      'FAQ',
       'faq.title':       'Common Questions',
