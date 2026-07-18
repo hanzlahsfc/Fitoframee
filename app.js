@@ -635,7 +635,6 @@
     var order = [
       ['instagram', 'Instagram', FITO.social.instagram],
       ['tiktok', 'TikTok', FITO.social.tiktok],
-      ['x', 'X', FITO.social.x],
       ['linkedin', 'LinkedIn', FITO.social.linkedin]
     ];
 

@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    content.js — single source of truth for all site copy (ES / EN).
    --------------------------------------------------------------------------
    Everything here mirrors the live site at https://fitoframe.com.
@@ -61,7 +61,6 @@ window.FITO = {
   social: {
     instagram: 'https://www.instagram.com/fitoframe',
     tiktok: 'https://www.tiktok.com/@fitoframe',
-    x: 'https://twitter.com/fitoframe',
     linkedin: 'https://www.linkedin.com/in/rodolfodelgadoedit/'
   },
 
@@ -175,7 +174,7 @@ window.FITO = {
          longer true. app.js hides the 4th accordion row. */
 
       'contact.kicker':  'Contacto',
-      'contact.title':   'Contáctame',
+      'contact.title':   'Mi contacto',
       'contact.sub':     'Escríbeme y hablamos de tu proyecto.',
       'contact.email':   'Email',
       'contact.phone':   'Celular',

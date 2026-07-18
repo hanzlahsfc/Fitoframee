@@ -262,8 +262,10 @@ nav.framer-ujUI6 {
   display: none !important;
 }
 
-/* Footer socials: keep only X, Instagram, TikTok (hide YouTube) */
-footer .framer-ohx6u0-container {
+/* Footer socials: hide entirely (already shown in Contact) */
+footer .framer-ohx6u0-container,
+footer .framer-ec9yvd,
+footer .fito-social-row {
   display: none !important;
 }
 
