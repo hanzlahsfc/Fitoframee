@@ -1211,6 +1211,12 @@ footer.framer-axgd5s::after {
   display: none !important;
 }
 
+/* Hide the subtitle line under the Videos heading (both breakpoint variants) */
+.framer-1j3nj6a,
+.framer-1c1prv0 {
+  display: none !important;
+}
+
 /* Section headings (h2) — match "Video Editor" hero style: Trueno Ultra Black */
 .framer-styles-preset-qqeaut,
 [data-styles-preset="kScghea8I"] {
