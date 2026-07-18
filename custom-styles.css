@@ -137,13 +137,13 @@ nav.framer-ujUI6 {
 .framer-1s1nl7r .framer-1gqrt5x,
 .framer-1s1nl7r .framer-1oxw26l {
   background: transparent !important;
-  text-align: left !important;
+  text-align: center !important;
 }
 
 /* Stack the outer wrapper and hide the empty media void on the right */
 .framer-1s1nl7r .framer-1gqrt5x {
   flex-direction: column !important;
-  align-items: stretch !important;
+  align-items: center !important;
   gap: 8px !important;
 }
 .framer-1s1nl7r .framer-i73j2h {
@@ -154,19 +154,33 @@ nav.framer-ujUI6 {
   max-width: 100% !important;
 }
 
-/* Description: undo the centering the old rule forced with margin:auto */
+/* Contact heading + content centered */
+.framer-1s1nl7r .framer-mk01nk {
+  align-items: center !important;
+  text-align: center !important;
+}
+.framer-1s1nl7r .framer-1oxw26l {
+  align-items: center !important;
+}
+.framer-1s1nl7r .framer-b5zzyj,
+.framer-1s1nl7r .framer-b5zzyj h2 {
+  text-align: center !important;
+  --framer-text-alignment: center !important;
+}
+
+/* Description centered */
 .framer-1s1nl7r .framer-1canf3n {
   max-width: 620px !important;
-  margin: 16px 0 0 0 !important;
-  text-align: left !important;
+  margin: 16px auto 0 auto !important;
+  text-align: center !important;
 }
-.framer-1s1nl7r .framer-1canf3n p { text-align: left !important; }
+.framer-1s1nl7r .framer-1canf3n p { text-align: center !important; }
 
-/* Info block: labelled fields + socials, left aligned */
+/* Info block: labelled fields + socials, centered */
 .framer-1s1nl7r .framer-1q1vsss {
   display: flex !important;
   flex-direction: column !important;
-  align-items: flex-start !important;
+  align-items: center !important;
   gap: 28px !important;
   width: 100% !important;
   height: auto !important;
@@ -179,7 +193,7 @@ nav.framer-ujUI6 {
   display: flex !important;
   flex-direction: column !important;
   gap: 10px !important;
-  align-items: flex-start !important;
+  align-items: center !important;
   width: auto !important;
   height: auto !important;
 }

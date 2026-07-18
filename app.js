@@ -1130,6 +1130,13 @@
 
     initFixLinks();
     initCursorTracker();
+
+    /* Move FAQ before Contact so Contact is always last. */
+    var contactSec = document.querySelector('section#contact-us');
+    var faqSec = document.querySelector('section.framer-1kv4bqw');
+    if (contactSec && faqSec) {
+      contactSec.parentNode.insertBefore(faqSec, contactSec);
+    }
   }
 
   if (document.readyState === 'loading') {
