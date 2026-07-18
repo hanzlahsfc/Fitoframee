@@ -175,7 +175,7 @@ window.FITO = {
 
       'contact.kicker':  'Contacto',
       'contact.title':   'Mi contacto',
-      'contact.sub':     'Escríbeme y hablamos de tu proyecto.',
+      'contact.sub':     '',
       'contact.email':   'Email',
       'contact.phone':   'Celular',
       'contact.loc':     'Locación',
@@ -280,7 +280,7 @@ window.FITO = {
 
       'contact.kicker':  'Contact',
       'contact.title':   'Contact me',
-      'contact.sub':     'Drop me a line and let’s talk about your project.',
+      'contact.sub':     '',
       'contact.email':   'Email',
       'contact.phone':   'Phone',
       'contact.loc':     'Location',

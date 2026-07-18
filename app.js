@@ -1107,6 +1107,17 @@
     lang = detectLang();
 
     indexContent();
+
+    /* The contact section h2 says "Book a Call" in the template, which
+       hero.cta2 grabs first. Re-tag it so contact.title controls it. */
+    var cSec = document.getElementById('contact-us');
+    if (cSec) {
+      var cH2 = cSec.querySelector('h2');
+      if (cH2) cH2.setAttribute('data-i18n', 'contact.title');
+      var cSub = cSec.querySelector('[data-i18n="contact.sub"]');
+      if (cSub) hide(cSub.closest('[data-framer-component-type="RichTextContainer"]') || cSub);
+    }
+
     initStripTemplate();
     initHeroLayout();
     initBrandsLine();
