@@ -117,7 +117,7 @@ window.FITO = {
       'skill.5.d':       'Trabajo individual y en equipo, buena compresión de lo que se necesita, buena narrativa visual y conocimiento en producción.',
 
       'extras.kicker':   'Por qué yo',
-      'extras.title':    'Más que solo "cortar" material.',
+      'extras.title':    'Pensar, editar, retener',
       'extras.sub':      'Cada frame se piensa con intención — de los cortes y el motion al color y el sonido.',
       'extras.1.t':      'Retención de audiencia',
       'extras.1.d':      'Cada corte, transición y ritmo está pensado para esto: mantener activo el patrón de interrupción.',
@@ -127,14 +127,14 @@ window.FITO = {
       'extras.3.d':      'De campañas de ADS a bodas, cada proyecto me ha enseñado algo distinto sobre cómo contar una historia.',
       /* Labels for the animated retention graph. See the NOTE on extras.stat.value. */
       'extras.stat.kicker': 'RETENCIÓN DE AUDIENCIA',
-      'extras.stat.sub':    'retención promedio por edición',
+      'extras.stat.sub':    'En cualquier nicho de edición, la finalidad es retener y vender',
 
       'work.kicker':     'Videos',
       'work.title':      'Videos',
       'work.sub':        'Una muestra de mi trabajo audiovisual.',
 
       'process.kicker':  'Proceso',
-      'process.title':   'Pensar, editar, retener.',
+      'process.title':   'Del archivo en bruto al render.',
       'process.sub':     'Cómo trabajamos juntos, paso a paso.',
       'process.1.t':     'Recibo el material',
       'process.1.d':     'Me compartes tu material por Google Drive o Dropbox.',
@@ -224,7 +224,7 @@ window.FITO = {
       'skill.5.d':       'I work both solo and in teams, with a solid grasp of what’s needed, strong visual storytelling, and production know-how.',
 
       'extras.kicker':   'Why Me',
-      'extras.title':    'More than just "cutting" footage.',
+      'extras.title':    'Think, Edit, Retain',
       'extras.sub':      'Every frame is shaped with intention — from clean cuts and motion to balanced color and sound.',
       'extras.1.t':      'Audience Retention',
       'extras.1.d':      'Every cut, transition, and rhythm is designed for one thing: keeping the pattern interrupt alive.',
@@ -234,14 +234,14 @@ window.FITO = {
       'extras.3.d':      'From ad campaigns to weddings, every project has taught me something different about how to tell a story.',
       /* Labels for the animated retention graph. See the NOTE on extras.stat.value. */
       'extras.stat.kicker': 'AUDIENCE RETENTION',
-      'extras.stat.sub':    'avg. viewer retention per edit',
+      'extras.stat.sub':    'In any editing niche, the goal is to retain and sell',
 
       'work.kicker':     'Videos',
       'work.title':      'Videos',
       'work.sub':        'A selection of my audiovisual work.',
 
       'process.kicker':  'Process',
-      'process.title':   'Think, Edit, Retain.',
+      'process.title':   'From Raw File to Render.',
       'process.sub':     'How we work together, step by step.',
       'process.1.t':     'Content received',
       'process.1.d':     'You share your footage via Google Drive or Dropbox.',

@@ -966,7 +966,9 @@
           'fill="rgba(13,13,13,0.35)" stroke="rgba(255,255,255,0.08)"/>' +
         '<text class="rg-kicker" data-i18n="extras.stat.kicker" x="40" y="58">' + t('extras.stat.kicker') + '</text>' +
         (stat == null ? '' : '<text class="rg-pct" x="38" y="132">0%</text>') +
-        '<text class="rg-sub" data-i18n="extras.stat.sub" x="40" y="' + (stat == null ? 122 : 162) + '">' + t('extras.stat.sub') + '</text>' +
+        '<foreignObject x="38" y="' + (stat == null ? 108 : 148) + '" width="' + (VB_W - 76) + '" height="60">' +
+          '<p xmlns="http://www.w3.org/1999/xhtml" class="rg-sub" data-i18n="extras.stat.sub" style="margin:0;font-size:13px;font-weight:500;color:rgba(255,255,255,0.55);line-height:1.3">' + t('extras.stat.sub') + '</p>' +
+        '</foreignObject>' +
         '<g class="rg-grid"></g>' +
         '<path class="rg-fill" fill="url(#rgArea)" clip-path="url(#rgClip)"/>' +
         '<path class="rg-stroke" fill="none" stroke="url(#rgLine)" stroke-width="4" ' +
