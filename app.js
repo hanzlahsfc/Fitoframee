@@ -1088,8 +1088,13 @@
       if (!m) continue;
       var id = m[1];
       a.setAttribute('href', '#' + id);
+      /* Template ships these buttons with target="_blank", so an in-page hash
+         still opened a new tab. Force same-tab so they scroll instead. */
+      a.removeAttribute('target');
+      a.removeAttribute('rel');
       (function (targetId) {
-        a.addEventListener('click', function () {
+        a.addEventListener('click', function (ev) {
+          ev.preventDefault();
           var el = document.getElementById(targetId);
           setTimeout(function () { smoothScrollTo(el); }, 0);
         });
