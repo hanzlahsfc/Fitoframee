@@ -232,6 +232,12 @@
       hide(wrap && wrap.children.length === 1 ? wrap : cal);
     }
 
+    /* Nav: only Videos, Questions, Contact Me — hide Skills link. */
+    var navLinks = document.querySelectorAll('a[href*="#services"]');
+    for (var nl = 0; nl < navLinks.length; nl++) {
+      hide(navLinks[nl].closest('.framer-1ykc5nc-container') || navLinks[nl]);
+    }
+
   }
 
   /* ---------------------------------------------------------------------
@@ -273,6 +279,22 @@
       heroSection.insertBefore(wrap, heroSection.firstChild);
       role.style.setProperty('display', 'none', 'important');
       if (nameEl) nameEl.style.setProperty('display', 'none', 'important');
+
+      var btnBlock = heroSection.querySelector('.framer-9bevb6');
+      var bioEls = heroSection.querySelectorAll('[data-i18n="hero.bio"]');
+      if (btnBlock) {
+        for (var b = 0; b < bioEls.length; b++) {
+          var bioParent = bioEls[b].closest('.ssr-variant') || bioEls[b].parentElement;
+          btnBlock.parentElement.insertBefore(bioParent, btnBlock);
+          var hidden = bioParent.querySelectorAll('[style*="opacity"]');
+          for (var h = 0; h < hidden.length; h++) {
+            hidden[h].style.opacity = '1';
+            hidden[h].style.transform = 'none';
+          }
+          bioEls[b].style.opacity = '1';
+          bioEls[b].style.transform = 'none';
+        }
+      }
     }
   }
 

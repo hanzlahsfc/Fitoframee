@@ -1326,5 +1326,13 @@ section#process {
     text-align: center !important;
     margin-bottom: 12px !important;
   }
+
+  [data-i18n="hero.bio"],
+  .fito-brands {
+    text-align: center !important;
+  }
+  .fito-brands {
+    margin-bottom: 20px !important;
+  }
 }
 
