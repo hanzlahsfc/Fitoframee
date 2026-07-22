@@ -998,18 +998,11 @@ footer.framer-axgd5s::after {
   pointer-events: none;
 }
 
-/* Graded: richer, contrastier, with a purple cinematic wash */
+/* Source image is already graded — show it as-is on the "after" side */
 .fito-grade-after img {
-  filter: saturate(1.28) contrast(1.14) brightness(0.98);
+  filter: none;
 }
-.fito-grade-after::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(140deg, rgba(128, 0, 255, 0.34) 0%, rgba(0, 170, 255, 0.16) 100%);
-  mix-blend-mode: soft-light;
-  pointer-events: none;
-}
+.fito-grade-after::after { display: none; }
 
 /* Ungraded: flat, washed out — clipped to the left of the handle */
 .fito-grade-before {
@@ -1287,7 +1280,8 @@ body,
 }
 
 [data-i18n="extras.sub"],
-[data-i18n="footer.tagline"] {
+[data-i18n="footer.tagline"],
+[data-i18n="faq.sub"] {
   display: none !important;
 }
 
@@ -1380,11 +1374,31 @@ section#process {
 }
 
 @media (max-width: 640px) {
+  .fito-software {
+    width: 100% !important;
+    padding: 20px 0 !important;
+  }
   .fito-software-logos {
     flex-direction: column !important;
+    gap: 14px !important;
+    width: 100% !important;
   }
   .fito-software-logo {
     width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 20px 22px !important;
+    border-radius: 22px !important;
   }
+}
+
+/* Spanish rules: don't force-capitalize every word — keep lowercase where
+   content.js has it (e.g. "Distintos formatos", "+4 años audiovisuales",
+   "Retención de audiencia", "Preguntas comunes"). Framer's h3/h2/h4 preset
+   applies text-transform: capitalize globally. */
+[data-i18n="extras.1.t"],
+[data-i18n="extras.2.t"],
+[data-i18n="extras.3.t"],
+[data-i18n="faq.title"] {
+  text-transform: none !important;
 }
 

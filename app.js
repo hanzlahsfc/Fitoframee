@@ -232,21 +232,22 @@
       hide(wrap && wrap.children.length === 1 ? wrap : cal);
     }
 
-    /* Nav: only Videos, Questions, Contact Me — hide Skills link. */
-    var navLinks = document.querySelectorAll('a[href*="#services"]');
+    /* Nav: only Videos, Questions, Contact Me — hide Skills and Process links. */
+    var navLinks = document.querySelectorAll('a[href*="#services"], a[href*="#process"]');
     for (var nl = 0; nl < navLinks.length; nl++) {
       hide(navLinks[nl].closest('.framer-1ykc5nc-container') || navLinks[nl]);
     }
 
     /* Why Me subtitle + footer tagline removed per client. SSR variants
        don't always get tagged with data-i18n, so match by text too. */
-    var killNodes = document.querySelectorAll('[data-i18n="extras.sub"], [data-i18n="footer.tagline"], p');
+    var killNodes = document.querySelectorAll('[data-i18n="extras.sub"], [data-i18n="footer.tagline"], [data-i18n="faq.sub"], p');
     for (var sn = 0; sn < killNodes.length; sn++) {
       var st = (killNodes[sn].textContent || '').trim();
       var dk = killNodes[sn].getAttribute('data-i18n');
-      if (dk === 'extras.sub' || dk === 'footer.tagline' ||
+      if (dk === 'extras.sub' || dk === 'footer.tagline' || dk === 'faq.sub' ||
           st.indexOf('Every frame is shaped with intention') === 0 ||
-          st.indexOf('Professional video editing for YouTube') === 0) {
+          st.indexOf('Professional video editing for YouTube') === 0 ||
+          st.indexOf('Common questions about our editing process') === 0) {
         hide(killNodes[sn]);
       }
     }
@@ -666,16 +667,19 @@
         '</a>';
     }
 
-    /* Both the contact card (.framer-6ysf0r) and the footer (.framer-ec9yvd)
-       ship social buttons wired to the previous owner's accounts — X
-       @Ur_Aqeeb22, Instagram @aqeeb_ur.rehman and an Upwork profile. Replace
-       the whole row in each so nothing stale can survive underneath. */
-    var rows = document.querySelectorAll('.framer-6ysf0r, .framer-ec9yvd');
+    /* The contact card (.framer-6ysf0r) is the only place socials should
+       appear. The footer variant (.framer-ec9yvd) is hidden entirely per
+       client — see the CSS rule for footer .fito-social-row. */
+    var rows = document.querySelectorAll('.framer-6ysf0r');
     for (var r = 0; r < rows.length; r++) {
       rows[r].innerHTML = html;
       rows[r].classList.add('fito-social-row');
       rows[r].style.setProperty('display', 'flex', 'important');
     }
+    /* Belt-and-braces: kill every socials container inside <footer>, since
+       the template renders per-breakpoint duplicates the CSS rule can miss. */
+    var footerRows = document.querySelectorAll('footer .framer-ec9yvd, footer .framer-ohx6u0-container, footer .fito-social-row');
+    for (var fr = 0; fr < footerRows.length; fr++) hide(footerRows[fr]);
   }
 
   /* ---------------------------------------------------------------------
