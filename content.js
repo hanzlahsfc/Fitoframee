@@ -45,9 +45,9 @@ window.FITO = {
      Images are self-hosted Unsplash placeholders — swap the files in assets/
      for Fito's own frames and nothing else needs to change. */
   services: [
-    { key: 'svc.1', img: 'svc-editing.jpg' },
-    { key: 'svc.2', img: 'svc-vfx.jpg' },
-    { key: 'svc.3', img: 'svc-sound.jpg' }
+    { key: 'svc.1', img: 'svc-vfx-new.png' },
+    { key: 'svc.2', img: 'higgsfield2.jpg' },
+    { key: 'svc.3', img: 'svc-sound-new.png' }
   ],
 
   /* Contact details — identical in both languages. */
@@ -105,25 +105,16 @@ window.FITO = {
       'skills.kicker':   'Acerca de mí',
       'skills.title':    'Con lo que trabajo',
       'skills.sub':      'Herramientas y áreas en las que me desenvuelvo día a día.',
-      'skill.1.t':       'Software',
-      'skill.1.d':       'Trabajo con Davinci Studio (versión paga).',
-      'skill.2.t':       'Color',
-      'skill.2.d':       'Color correction y color grading.',
-      'skill.3.t':       'Efectos',
-      'skill.3.d':       'Vfx y titulos animados.',
-      'skill.4.t':       'Sonido',
-      'skill.4.d':       'Diseño de sonido, mejora de voces, entre otras cosas.',
-      'skill.5.t':       'Extras',
-      'skill.5.d':       'Trabajo individual y en equipo, buena compresión de lo que se necesita, buena narrativa visual y conocimiento en producción.',
+      'software.sub':    'Alguno de los software con los que trabajo',
 
       'extras.kicker':   'Por qué yo',
       'extras.title':    'Pensar, editar, retener',
       'extras.sub':      'Cada frame se piensa con intención — de los cortes y el motion al color y el sonido.',
       'extras.1.t':      'Retención de audiencia',
       'extras.1.d':      'Cada corte, transición y ritmo está pensado para esto: mantener activo el patrón de interrupción.',
-      'extras.2.t':      'Un editor, distintos formatos',
+      'extras.2.t':      'Distintos formatos',
       'extras.2.d':      'Ediciones dinámicas de marcas, piezas para ADS, cobertura de eventos y bodas. Cada una con su propio lenguaje pero con la misma finalidad "retener".',
-      'extras.3.t':      '+4 años de oficio',
+      'extras.3.t':      '+4 años audiovisuales',
       'extras.3.d':      'De campañas de ADS a bodas, cada proyecto me ha enseñado algo distinto sobre cómo contar una historia.',
       /* Labels for the animated retention graph. See the NOTE on extras.stat.value. */
       'extras.stat.kicker': 'RETENCIÓN DE AUDIENCIA',
@@ -206,31 +197,22 @@ window.FITO = {
 
       'about.kicker':    'About',
       'about.title':     'A little about me',
-      'about.bio':       'You can call me Fito. I was born in Caracas, Venezuela in ‘94, and I have over 4 years dedicated to audiovisual work — both on my own and as part of different teams and creative projects.',
+      'about.bio':       'You can call me Fito. I was born in Caracas, Venezuela in ’94, and I have over 4 years dedicated to audiovisual work — both on my own and as part of different teams and creative projects.',
       'about.brands':    'I’ve had the opportunity to collaborate with brands such as: Gatorade, KFC, Cinepic, Jac, Fina Partner, among others.',
 
       'skills.kicker':   'About me',
       'skills.title':    'What I work with',
       'skills.sub':      'The tools and areas I work in every day.',
-      'skill.1.t':       'Software',
-      'skill.1.d':       'I work with DaVinci Studio (paid version).',
-      'skill.2.t':       'Color',
-      'skill.2.d':       'Color correction and color grading.',
-      'skill.3.t':       'Effects',
-      'skill.3.d':       'VFX and animated titles.',
-      'skill.4.t':       'Sound',
-      'skill.4.d':       'Sound design, voice enhancement, and more.',
-      'skill.5.t':       'Extras',
-      'skill.5.d':       'I work both solo and in teams, with a solid grasp of what’s needed, strong visual storytelling, and production know-how.',
+      'software.sub':    'Some of the software I work with',
 
       'extras.kicker':   'Why Me',
       'extras.title':    'Think, Edit, Retain',
       'extras.sub':      'Every frame is shaped with intention — from clean cuts and motion to balanced color and sound.',
       'extras.1.t':      'Audience Retention',
-      'extras.1.d':      'Every cut, transition, and rhythm is designed for one thing: keeping the pattern interrupt alive.',
-      'extras.2.t':      'One Editor, Many Formats',
+      'extras.1.d':      'Every cut, transition, and rhythm is designed to keep the interruption pattern active.',
+      'extras.2.t':      'Different formats',
       'extras.2.d':      'Dynamic brand edits, ad pieces, event coverage, and weddings — each with its own language but the same goal: retain.',
-      'extras.3.t':      '+4 Years in the Craft',
+      'extras.3.t':      '+4 Years in Audiovisual',
       'extras.3.d':      'From ad campaigns to weddings, every project has taught me something different about how to tell a story.',
       /* Labels for the animated retention graph. See the NOTE on extras.stat.value. */
       'extras.stat.kicker': 'AUDIENCE RETENTION',

@@ -238,6 +238,17 @@
       hide(navLinks[nl].closest('.framer-1ykc5nc-container') || navLinks[nl]);
     }
 
+    /* Why Me subtitle removed per client. Hide every breakpoint variant:
+       some SSR variants don't get tagged with data-i18n, so match by text too. */
+    var subNodes = document.querySelectorAll('[data-i18n="extras.sub"], p');
+    for (var sn = 0; sn < subNodes.length; sn++) {
+      var st = (subNodes[sn].textContent || '').trim();
+      if (subNodes[sn].getAttribute('data-i18n') === 'extras.sub' ||
+          st.indexOf('Every frame is shaped with intention') === 0) {
+        hide(subNodes[sn]);
+      }
+    }
+
   }
 
   /* ---------------------------------------------------------------------
@@ -455,31 +466,17 @@
     var wrap = document.querySelector('.framer-1dg4u9r');
     if (!wrap) return;
 
-    var html = '<div class="fito-skills-grid"><div class="fito-skills">' +
-               '<span class="fito-skills-line"></span><ul class="fito-skills-list">';
-    for (var i = 0; i < FITO.skills.length; i++) {
-      var s = FITO.skills[i];
-      html +=
-        '<li class="fito-skill" style="transition-delay:' + (i * 90) + 'ms">' +
-          '<span class="fito-skill-tick" aria-hidden="true"></span>' +
-          '<span class="fito-skill-icon" aria-hidden="true">' +
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
-                 'stroke-linecap="round" stroke-linejoin="round">' + SKILL_ICONS[s.icon] + '</svg>' +
-          '</span>' +
-          '<span class="fito-skill-body">' +
-            '<h3 class="fito-skill-title" data-i18n="' + s.key + '.t">' + t(s.key + '.t') + '</h3>' +
-            '<p class="fito-skill-desc" data-i18n="' + s.key + '.d">' + t(s.key + '.d') + '</p>' +
-          '</span>' +
-        '</li>';
-    }
-    html += '</ul></div>' +
-      /* Photo collage, mirroring the live site: his ZV-E10 and an on-location
-         shot, overlapping, with a purple block behind. These are the two photos
-         that actually belong next to his craft. */
+    var html = '<div class="fito-skills-grid">' +
       '<div class="fito-collage" aria-hidden="true">' +
         '<span class="fito-collage-block"></span>' +
-        '<img class="fito-collage-a" src="./assets/fito-skills-left.jpg" alt="" loading="lazy">' +
         '<img class="fito-collage-b" src="./assets/fito-skills.png" alt="" loading="lazy">' +
+      '</div>' +
+      '<div class="fito-software">' +
+        '<p class="fito-software-sub" data-i18n="software.sub">' + t('software.sub') + '</p>' +
+        '<div class="fito-software-logos">' +
+          '<div class="fito-software-logo"><img src="./assets/davinci-logo.png" alt="DaVinci Resolve Studio"><span>DaVinci Resolve</span></div>' +
+          '<div class="fito-software-logo"><img src="./assets/higgsfield-logo.png" alt="Higgsfield AI"><span>Higgsfield AI</span></div>' +
+        '</div>' +
       '</div>' +
     '</div>';
 
@@ -535,24 +532,8 @@
     wrap.classList.add('fito-skills-host');
     initGradeSlider(wrap.querySelector('.fito-grade-slider'));
 
-    /* Reveal on scroll, staggered by the inline transition-delay above. */
     var grid = wrap.querySelector('.fito-skills-grid');
-    var root = wrap.querySelector('.fito-skills');
-    var items = wrap.querySelectorAll('.fito-skill');
-    function reveal() {
-      grid.classList.add('is-in');
-      root.classList.add('is-in');
-      for (var j = 0; j < items.length; j++) items[j].classList.add('is-in');
-    }
-    if (!('IntersectionObserver' in window)) { reveal(); return; }
-    var io = new IntersectionObserver(function (entries) {
-      for (var e = 0; e < entries.length; e++) {
-        if (!entries[e].isIntersecting) continue;
-        reveal();
-        io.disconnect();
-      }
-    }, { threshold: 0.15 });
-    io.observe(grid);
+    if (grid) grid.classList.add('is-in');
   }
 
   /* ---------------------------------------------------------------------
