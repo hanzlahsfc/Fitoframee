@@ -259,6 +259,21 @@
       name.textContent = t('hero.name');
       el.parentNode.insertBefore(name, el.nextSibling);
     }
+
+    if (window.innerWidth < 810) {
+      var heroSection = document.querySelector('.framer-zfc0mn');
+      if (!heroSection) return;
+      var role = heroSection.querySelector('[data-i18n="hero.role"]');
+      var nameEl = heroSection.querySelector('.fito-hero-name');
+      if (!role) return;
+      var wrap = document.createElement('div');
+      wrap.className = 'fito-hero-top';
+      wrap.appendChild(role.cloneNode(true));
+      if (nameEl) wrap.appendChild(nameEl.cloneNode(true));
+      heroSection.insertBefore(wrap, heroSection.firstChild);
+      role.style.setProperty('display', 'none', 'important');
+      if (nameEl) nameEl.style.setProperty('display', 'none', 'important');
+    }
   }
 
   /* ---------------------------------------------------------------------
