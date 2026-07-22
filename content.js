@@ -111,7 +111,7 @@ window.FITO = {
       'extras.title':    'Pensar, editar, retener',
       'extras.sub':      'Cada frame se piensa con intención — de los cortes y el motion al color y el sonido.',
       'extras.1.t':      'Retención de audiencia',
-      'extras.1.d':      'Cada corte, transición y ritmo está pensado para esto: mantener activo el patrón de interrupción.',
+      'extras.1.d':      'Cada corte, transición y ritmo esta pensado para mantener activo el patrón de interrupción.',
       'extras.2.t':      'Distintos formatos',
       'extras.2.d':      'Ediciones dinámicas de marcas, piezas para ADS, cobertura de eventos y bodas. Cada una con su propio lenguaje pero con la misma finalidad "retener".',
       'extras.3.t':      '+4 años audiovisuales',

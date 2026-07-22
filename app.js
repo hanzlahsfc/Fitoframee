@@ -238,14 +238,16 @@
       hide(navLinks[nl].closest('.framer-1ykc5nc-container') || navLinks[nl]);
     }
 
-    /* Why Me subtitle removed per client. Hide every breakpoint variant:
-       some SSR variants don't get tagged with data-i18n, so match by text too. */
-    var subNodes = document.querySelectorAll('[data-i18n="extras.sub"], p');
-    for (var sn = 0; sn < subNodes.length; sn++) {
-      var st = (subNodes[sn].textContent || '').trim();
-      if (subNodes[sn].getAttribute('data-i18n') === 'extras.sub' ||
-          st.indexOf('Every frame is shaped with intention') === 0) {
-        hide(subNodes[sn]);
+    /* Why Me subtitle + footer tagline removed per client. SSR variants
+       don't always get tagged with data-i18n, so match by text too. */
+    var killNodes = document.querySelectorAll('[data-i18n="extras.sub"], [data-i18n="footer.tagline"], p');
+    for (var sn = 0; sn < killNodes.length; sn++) {
+      var st = (killNodes[sn].textContent || '').trim();
+      var dk = killNodes[sn].getAttribute('data-i18n');
+      if (dk === 'extras.sub' || dk === 'footer.tagline' ||
+          st.indexOf('Every frame is shaped with intention') === 0 ||
+          st.indexOf('Professional video editing for YouTube') === 0) {
+        hide(killNodes[sn]);
       }
     }
 
@@ -502,7 +504,7 @@
        flat/ungraded, the right half with a purple cinematic grade applied in
        CSS. Using two unrelated photos would demo nothing — grading is only
        legible as the same frame treated two ways.
-       assets/grade-sample.jpg is an Unsplash placeholder; swap it for one of
+       assets/grade-sample-v2.jpg is an Unsplash placeholder; swap it for one of
        Fito's own frames and the effect still works. */
     '<div class="fito-grade" style="--i:' + FITO.services.length + '">' +
       '<div class="fito-grade-text">' +
@@ -512,10 +514,10 @@
       '<div class="fito-grade-slider" role="slider" tabindex="0" aria-label="Before / after colour grading" ' +
            'aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--pos:50%">' +
         '<div class="fito-grade-layer fito-grade-after">' +
-          '<img src="./assets/grade-sample.jpg" alt="" loading="lazy">' +
+          '<img src="./assets/grade-sample-v2.jpg" alt="" loading="lazy">' +
         '</div>' +
         '<div class="fito-grade-layer fito-grade-before">' +
-          '<img src="./assets/grade-sample.jpg" alt="" loading="lazy">' +
+          '<img src="./assets/grade-sample-v2.jpg" alt="" loading="lazy">' +
         '</div>' +
         '<span class="fito-grade-label is-before" data-i18n="grading.before">' + t('grading.before') + '</span>' +
         '<span class="fito-grade-label is-after" data-i18n="grading.after">' + t('grading.after') + '</span>' +
